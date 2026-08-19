@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>富致康醫療器材</title>
+
+    <title>富致康醫療器材｜醫療器材・居家照護・輔具用品</title>
+
+    <meta name="description"
+          content="富致康醫療器材成立於2010年，專營醫療器材、居家長期照護用品、輪椅、助行器、柺杖、馬桶椅、氣墊床、醫療耗材及輔具維修。">
 
     <style>
+
+        /* ================================
+           基本設定
+        ================================= */
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -17,547 +27,1458 @@
         }
 
         body {
-            font-family: "Microsoft JhengHei", Arial, sans-serif;
+            font-family:
+                "Microsoft JhengHei",
+                "Noto Sans TC",
+                Arial,
+                sans-serif;
+
             line-height: 1.7;
             color: #333;
-            background: #f7f9fb;
+            background: #ffffff;
         }
 
+        a {
+            text-decoration: none;
+        }
+
+        /* ================================
+           HEADER
+        ================================= */
+
         header {
-            background: rgba(255,255,255,0.96);
-            padding: 14px 8%;
+            height: 82px;
+            padding: 0 7%;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+
             position: sticky;
             top: 0;
             z-index: 1000;
+
+            background: rgba(255,255,255,0.97);
+
+            box-shadow:
+                0 3px 18px rgba(0,0,0,0.06);
         }
 
         .logo {
             display: flex;
             align-items: center;
             gap: 14px;
-            font-size: 24px;
-            font-weight: bold;
-            color: #0798d4;
+
+            color: #087eb4;
+
+            font-size: 22px;
+            font-weight: 800;
+
             white-space: nowrap;
         }
 
         .logo img {
             height: 54px;
             width: auto;
-            display: block;
         }
 
         nav {
             display: flex;
             align-items: center;
-            gap: 24px;
+            gap: 28px;
         }
 
         nav a {
-            text-decoration: none;
             color: #333;
             font-size: 15px;
             font-weight: 600;
+
             transition: 0.25s;
         }
 
         nav a:hover {
-            color: #0798d4;
+            color: #079bd8;
         }
 
+        .nav-products {
+            color: white !important;
+            background: #079bd8;
+
+            padding: 9px 18px;
+            border-radius: 7px;
+        }
+
+        .nav-products:hover {
+            background: #067dad;
+        }
+
+        /* ================================
+           HERO
+        ================================= */
+
         .hero {
-            min-height: 560px;
-            background:
-                linear-gradient(
-                    rgba(5, 75, 110, 0.72),
-                    rgba(5, 75, 110, 0.68)
-                ),
-                url("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1600&q=80");
-            background-size: cover;
-            background-position: center;
+            min-height: 610px;
+
+            padding: 60px 8%;
+
             display: flex;
             align-items: center;
-            padding: 0 8%;
+
             color: white;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(5,61,89,0.92) 0%,
+                    rgba(5,90,128,0.78) 45%,
+                    rgba(5,86,121,0.40) 100%
+                ),
+                url(
+                    "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1800&q=85"
+                );
+
+            background-size: cover;
+            background-position: center;
         }
 
         .hero-content {
-            max-width: 760px;
+            max-width: 740px;
         }
 
-        .hero-tag {
+        .hero-small {
             display: inline-block;
-            padding: 6px 14px;
-            border: 1px solid rgba(255,255,255,0.6);
-            border-radius: 30px;
-            font-size: 14px;
+
+            padding: 7px 16px;
+
             margin-bottom: 20px;
-            background: rgba(255,255,255,0.08);
+
+            border:
+                1px solid rgba(255,255,255,0.55);
+
+            border-radius: 30px;
+
+            background:
+                rgba(255,255,255,0.08);
+
+            font-size: 14px;
         }
 
         .hero h1 {
-            font-size: 52px;
+            font-size: 54px;
             line-height: 1.2;
+
+            margin-bottom: 18px;
+        }
+
+        .hero h2 {
+            font-size: 26px;
+            font-weight: 500;
+
             margin-bottom: 18px;
         }
 
         .hero p {
-            font-size: 20px;
-            margin-bottom: 30px;
             max-width: 650px;
+
+            margin-bottom: 32px;
+
+            font-size: 18px;
+
+            color:
+                rgba(255,255,255,0.92);
         }
 
-        .hero-button {
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn-main {
             display: inline-block;
+
             padding: 13px 28px;
+
+            color: #087eb4;
             background: white;
-            color: #0798d4;
-            text-decoration: none;
+
             border-radius: 7px;
-            font-weight: bold;
+
+            font-weight: 700;
+
             transition: 0.25s;
         }
 
-        .hero-button:hover {
+        .btn-main:hover {
             transform: translateY(-2px);
         }
 
+        .btn-outline {
+            display: inline-block;
+
+            padding: 12px 27px;
+
+            color: white;
+
+            border: 1px solid white;
+
+            border-radius: 7px;
+
+            font-weight: 700;
+
+            transition: 0.25s;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: #087eb4;
+        }
+
+        /* ================================
+           共用 SECTION
+        ================================= */
+
         section {
-            padding: 85px 8%;
+            padding: 90px 8%;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 45px;
+
+            max-width: 750px;
+
+            margin:
+                0 auto 48px;
+        }
+
+        .section-title span {
+            display: block;
+
+            color: #079bd8;
+
+            font-size: 14px;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 5px;
         }
 
         .section-title h2 {
-            font-size: 34px;
-            color: #087eae;
-            margin-bottom: 8px;
+            color: #164c65;
+
+            font-size: 36px;
+
+            margin-bottom: 9px;
         }
 
         .section-title p {
             color: #777;
         }
 
+        /* ================================
+           ABOUT
+        ================================= */
+
         .about {
             background: white;
         }
 
-        .about-content {
-            max-width: 900px;
+        .about-container {
+            max-width: 1050px;
+
             margin: auto;
-            text-align: center;
-            font-size: 18px;
-            color: #555;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 60px;
+
+            align-items: center;
         }
 
+        .about-text h2 {
+            color: #164c65;
+
+            font-size: 36px;
+
+            margin-bottom: 22px;
+        }
+
+        .about-text p {
+            color: #626262;
+
+            font-size: 17px;
+
+            margin-bottom: 16px;
+        }
+
+        .about-year {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 320px;
+
+            border-radius: 22px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #079bd8,
+                    #066f9e
+                );
+
+            color: white;
+
+            text-align: center;
+
+            box-shadow:
+                0 15px 40px rgba(7,155,216,0.20);
+        }
+
+        .year-number {
+            font-size: 72px;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .year-text {
+            margin-top: 12px;
+
+            font-size: 18px;
+        }
+
+        /* ================================
+           SERVICES
+        ================================= */
+
         .services {
-            background: #f3f8fb;
+            background: #f5f9fb;
         }
 
         .service-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 18px;
-            max-width: 1180px;
+            max-width: 1200px;
+
             margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(5,1fr);
+
+            gap: 18px;
         }
 
         .service-card {
+            padding: 30px 18px;
+
             background: white;
-            padding: 28px 16px;
+
+            border:
+                1px solid #e9eff2;
+
             border-radius: 14px;
+
             text-align: center;
-            box-shadow: 0 5px 18px rgba(0,0,0,0.05);
+
             transition: 0.25s;
-            border: 1px solid #edf1f4;
         }
 
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 26px rgba(0,0,0,0.08);
+            transform: translateY(-6px);
+
+            box-shadow:
+                0 12px 30px rgba(0,0,0,0.08);
+
+            border-color: #c5e7f5;
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+
+            margin:
+                0 auto 14px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            color: #079bd8;
+
+            background: #eaf7fc;
+
+            font-size: 22px;
+            font-weight: 900;
         }
 
         .service-card h3 {
-            color: #087eae;
-            margin-bottom: 6px;
-            font-size: 19px;
+            color: #176182;
+
+            margin-bottom: 5px;
         }
 
         .service-card p {
+            color: #7a7a7a;
+
             font-size: 14px;
-            color: #777;
         }
 
-        .products {
-            background: #ffffff;
+        /* ================================
+           PRODUCT CATEGORY
+        ================================= */
+
+        .category-preview {
+            background: white;
+        }
+
+        .category-grid {
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4,1fr);
+
+            gap: 20px;
+        }
+
+        .category-card {
+            min-height: 185px;
+
+            padding: 28px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            position: relative;
+
+            overflow: hidden;
+
+            border-radius: 16px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #f1f8fb,
+                    #ffffff
+                );
+
+            border:
+                1px solid #e4edf1;
+
+            transition: 0.3s;
+        }
+
+        .category-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 120px;
+            height: 120px;
+
+            border-radius: 50%;
+
+            right: -40px;
+            top: -40px;
+
+            background:
+                rgba(7,155,216,0.10);
+        }
+
+        .category-card:hover {
+            transform: translateY(-6px);
+
+            box-shadow:
+                0 14px 35px rgba(0,0,0,0.08);
+        }
+
+        .category-card h3 {
+            position: relative;
+
+            color: #164c65;
+
+            font-size: 23px;
+
+            margin-bottom: 4px;
+        }
+
+        .category-card p {
+            position: relative;
+
+            color: #777;
+
+            font-size: 14px;
+        }
+
+        .view-products {
+            text-align: center;
+
+            margin-top: 40px;
+        }
+
+        .view-products a {
+            display: inline-block;
+
+            padding: 13px 30px;
+
+            color: white;
+
+            background: #079bd8;
+
+            border-radius: 7px;
+
+            font-weight: 700;
+
+            transition: 0.25s;
+        }
+
+        .view-products a:hover {
+            background: #087eae;
+        }
+
+        /* ================================
+           FEATURED PRODUCT
+        ================================= */
+
+        .featured {
+            background: #f5f9fb;
         }
 
         .product-container {
             max-width: 1200px;
+
             margin: auto;
+
             display: grid;
-            grid-template-columns: 1.05fr 1fr;
+
+            grid-template-columns:
+                1.05fr 1fr;
+
             gap: 60px;
+
             align-items: center;
         }
 
         .product-images {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 15px;
         }
 
         .product-image-box {
-            background: #f6f8fa;
-            border-radius: 18px;
-            padding: 22px;
             min-height: 400px;
+
+            padding: 18px;
+
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid #eceff2;
+
+            background: white;
+
+            border:
+                1px solid #e6ecef;
+
+            border-radius: 18px;
         }
 
         .product-image-box img {
             width: 100%;
-            max-height: 410px;
+            max-height: 420px;
+
             object-fit: contain;
-            display: block;
         }
 
         .product-category {
             display: inline-block;
-            background: #eaf7fc;
-            color: #0798d4;
-            padding: 7px 15px;
-            border-radius: 30px;
-            font-size: 14px;
-            font-weight: bold;
+
+            padding: 6px 15px;
+
             margin-bottom: 15px;
+
+            background: #e5f6fc;
+
+            color: #079bd8;
+
+            border-radius: 30px;
+
+            font-size: 14px;
+            font-weight: 800;
         }
 
         .product-info h2 {
-            font-size: 38px;
             color: #222;
-            margin-bottom: 14px;
+
+            font-size: 38px;
+
+            margin-bottom: 12px;
         }
 
         .product-description {
-            font-size: 17px;
             color: #666;
-            margin-bottom: 24px;
+
+            font-size: 17px;
+
+            margin-bottom: 22px;
         }
 
         .product-features {
             list-style: none;
+
             margin-bottom: 25px;
         }
 
         .product-features li {
             position: relative;
-            padding: 10px 0 10px 28px;
-            border-bottom: 1px solid #eee;
-            color: #444;
+
+            padding:
+                9px 0 9px 28px;
+
+            border-bottom:
+                1px solid #e4e4e4;
         }
 
         .product-features li::before {
             content: "✓";
+
             position: absolute;
+
             left: 0;
-            color: #0798d4;
+
+            color: #079bd8;
+
             font-weight: bold;
         }
 
         .subsidy {
-            background: #f1f8fb;
-            border-left: 4px solid #0798d4;
             padding: 16px 18px;
-            margin-bottom: 25px;
-            border-radius: 6px;
+
+            margin-bottom: 24px;
+
+            background: #eaf7fc;
+
+            border-left:
+                4px solid #079bd8;
+
+            border-radius: 5px;
         }
 
         .subsidy strong {
             display: block;
+
             color: #087eae;
-            margin-bottom: 4px;
         }
 
-        .subsidy span {
-            color: #555;
-        }
-
-        .product-button {
+        .product-link {
             display: inline-block;
-            background: #0798d4;
+
+            padding: 12px 27px;
+
+            background: #079bd8;
+
             color: white;
-            text-decoration: none;
-            padding: 13px 28px;
+
             border-radius: 7px;
-            font-weight: bold;
-            transition: 0.25s;
+
+            font-weight: 700;
         }
 
-        .product-button:hover {
-            background: #087eae;
-            transform: translateY(-2px);
-        }
+        /* ================================
+           CONTACT
+        ================================= */
 
         .contact {
-            background: #f3f8fb;
-            text-align: center;
-        }
-
-        .contact-box {
-            max-width: 760px;
-            margin: auto;
             background: white;
-            border-radius: 16px;
-            padding: 35px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
         }
 
-        .contact-box p {
-            margin-bottom: 8px;
-            font-size: 17px;
+        .contact-container {
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                0.9fr 1.1fr;
+
+            gap: 35px;
         }
 
-        footer {
-            background: #123f54;
+        .contact-info {
+            padding: 38px;
+
+            border-radius: 18px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #075c83,
+                    #079bd8
+                );
+
             color: white;
-            text-align: center;
-            padding: 26px;
+        }
+
+        .contact-info h3 {
+            font-size: 28px;
+
+            margin-bottom: 10px;
+        }
+
+        .contact-intro {
+            margin-bottom: 26px;
+
+            color:
+                rgba(255,255,255,0.86);
+        }
+
+        .contact-item {
+            margin-bottom: 20px;
+        }
+
+        .contact-label {
+            display: block;
+
+            font-size: 13px;
+
+            color:
+                rgba(255,255,255,0.70);
+        }
+
+        .contact-value {
+            color: white;
+
+            font-size: 17px;
+
+            font-weight: 600;
+        }
+
+        .contact-value a {
+            color: white;
+        }
+
+        .contact-buttons {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin-top: 26px;
+        }
+
+        .contact-buttons a {
+            padding: 10px 17px;
+
+            border-radius: 6px;
+
+            background: white;
+
+            color: #087eae;
+
+            font-weight: 700;
+
             font-size: 14px;
         }
 
+        .map-box {
+            min-height: 500px;
+
+            overflow: hidden;
+
+            border-radius: 18px;
+
+            border:
+                1px solid #e1e7ea;
+        }
+
+        .map-box iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 500px;
+
+            border: 0;
+        }
+
+        /* ================================
+           FOOTER
+        ================================= */
+
+        footer {
+            padding: 32px 8%;
+
+            background: #113f54;
+
+            color:
+                rgba(255,255,255,0.82);
+
+            text-align: center;
+
+            font-size: 14px;
+        }
+
+        /* ================================
+           RWD
+        ================================= */
+
         @media (max-width: 1100px) {
+
             .service-grid {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns:
+                    repeat(3,1fr);
+            }
+
+            .category-grid {
+                grid-template-columns:
+                    repeat(2,1fr);
             }
 
             .product-container {
                 grid-template-columns: 1fr;
             }
-
-            .product-images {
-                max-width: 760px;
-                margin: auto;
-            }
         }
 
-        @media (max-width: 800px) {
+        @media (max-width: 850px) {
+
             header {
-                flex-direction: column;
-                gap: 12px;
+                height: auto;
+
                 padding: 12px 5%;
+
+                flex-direction: column;
+
+                gap: 12px;
             }
 
             nav {
-                flex-wrap: wrap;
                 justify-content: center;
+
+                flex-wrap: wrap;
+
                 gap: 14px;
             }
 
             .hero {
-                min-height: 500px;
-                padding: 60px 6%;
+                min-height: 540px;
             }
 
             .hero h1 {
-                font-size: 40px;
+                font-size: 42px;
             }
 
-            .service-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .product-images {
+            .about-container {
                 grid-template-columns: 1fr;
             }
 
-            .product-info h2 {
-                font-size: 32px;
+            .about-year {
+                min-height: 240px;
             }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
         }
 
-        @media (max-width: 520px) {
+        @media (max-width: 600px) {
+
             .logo {
-                font-size: 20px;
+                font-size: 19px;
             }
 
             .logo img {
                 height: 44px;
             }
 
-            .hero h1 {
-                font-size: 34px;
+            nav a {
+                font-size: 13px;
             }
 
-            .hero p {
-                font-size: 17px;
+            .hero {
+                padding:
+                    65px 6%;
+            }
+
+            .hero h1 {
+                font-size: 35px;
+            }
+
+            .hero h2 {
+                font-size: 21px;
             }
 
             section {
-                padding: 65px 6%;
+                padding:
+                    70px 6%;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
             }
 
             .service-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+            .category-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .product-images {
+                grid-template-columns:
+                    1fr;
             }
 
             .product-image-box {
                 min-height: 320px;
             }
+
+            .product-info h2 {
+                font-size: 31px;
+            }
+
         }
+
     </style>
+
 </head>
+
 
 <body>
 
+<!-- ================================
+     HEADER
+================================= -->
+
 <header>
-    <div class="logo">
-        <img src="images/fzk.png" alt="富致康醫療器材 Logo">
-        <span>富致康醫療器材</span>
-    </div>
+
+    <a href="index.html" class="logo">
+
+        <img
+            src="images/fzk.png"
+            alt="富致康醫療器材 Logo">
+
+        <span>
+            富致康醫療器材
+        </span>
+
+    </a>
+
 
     <nav>
-        <a href="#home">首頁</a>
-        <a href="#about">關於我們</a>
-        <a href="#services">服務項目</a>
-        <a href="#products">產品專區</a>
-        <a href="#contact">聯絡我們</a>
+
+        <a href="#home">
+            首頁
+        </a>
+
+        <a href="#about">
+            關於我們
+        </a>
+
+        <a href="#services">
+            服務項目
+        </a>
+
+        <a
+            href="products.html"
+            class="nav-products">
+
+            產品專區
+
+        </a>
+
+        <a href="#contact">
+            聯絡我們
+        </a>
+
     </nav>
+
 </header>
 
-<section class="hero" id="home">
+
+<!-- ================================
+     HERO
+================================= -->
+
+<section
+    class="hero"
+    id="home">
+
     <div class="hero-content">
-        <div class="hero-tag">醫療器材・居家照護・輔具服務</div>
 
-        <h1>富致康醫療器材</h1>
+        <div class="hero-small">
+
+            MEDICAL & HOME CARE
+
+        </div>
+
+        <h1>
+            富致康醫療器材
+        </h1>
+
+        <h2>
+            專業醫療器材與居家照護用品
+        </h2>
 
         <p>
-            專營醫療器材用品、醫療儀器設備、居家長期照護用品、
-            保健食品、各式醫療耗材用品批發、零售及維修。
+
+            成立經營於2010年，
+            專營醫療器材用品、醫療儀器設備、
+            居家長期照護用品、保健食品、
+            各式醫療耗材用品批發、零售及維修。
+
         </p>
 
-        <a href="#products" class="hero-button">
-            查看產品
-        </a>
+        <div class="hero-buttons">
+
+            <a
+                href="products.html"
+                class="btn-main">
+
+                瀏覽產品
+
+            </a>
+
+            <a
+                href="#contact"
+                class="btn-outline">
+
+                聯絡我們
+
+            </a>
+
+        </div>
+
     </div>
+
 </section>
 
-<section class="about" id="about">
-    <div class="section-title">
-        <h2>關於富致康</h2>
-        <p>專業・安心・用心服務</p>
+
+<!-- ================================
+     ABOUT
+================================= -->
+
+<section
+    class="about"
+    id="about">
+
+    <div class="about-container">
+
+        <div class="about-text">
+
+            <h2>
+                關於富致康
+            </h2>
+
+            <p>
+
+                富致康醫療器材成立經營於2010年，
+                長期提供醫療器材、醫療儀器設備、
+                居家照護用品與各式醫療耗材。
+
+            </p>
+
+            <p>
+
+                我們希望依照每一位使用者及家庭不同的照護需求，
+                協助挑選合適的醫療器材與輔具，
+                並提供產品銷售、相關配件以及輔具維修服務。
+
+            </p>
+
+            <p>
+
+                從日常行動輔助到居家長期照護，
+                富致康持續提供安心、實用且專業的產品服務。
+
+            </p>
+
+        </div>
+
+
+        <div class="about-year">
+
+            <div>
+
+                <div class="year-number">
+                    2010
+                </div>
+
+                <div class="year-text">
+                    富致康醫療器材成立經營
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
 
-    <div class="about-content">
-        <p>
-            富致康醫療器材成立經營於2010年，
-            專營醫療器材用品、醫療儀器設備、居家長期照護用品、
-            保健食品、各式醫療耗材用品之批發、零售及維修。
-        </p>
-
-        <br>
-
-        <p>
-            我們致力於提供專業且完善的醫療照護用品與輔具服務，
-            協助使用者、家屬及照護者找到更適合日常生活需求的產品。
-        </p>
-    </div>
 </section>
 
-<section class="services" id="services">
+
+<!-- ================================
+     SERVICES
+================================= -->
+
+<section
+    class="services"
+    id="services">
+
     <div class="section-title">
-        <h2>服務項目</h2>
-        <p>醫療器材・照護用品・輔具維修</p>
+
+        <span>
+            OUR SERVICES
+        </span>
+
+        <h2>
+            服務項目
+        </h2>
+
+        <p>
+            醫療器材・居家照護・醫療耗材・輔具維修
+        </p>
+
     </div>
+
 
     <div class="service-grid">
 
         <div class="service-card">
-            <h3>輪椅</h3>
-            <p>各式居家與照護用輪椅</p>
+
+            <div class="service-icon">
+                +
+            </div>
+
+            <h3>
+                輪椅
+            </h3>
+
+            <p>
+                各式居家與照護用輪椅
+            </p>
+
         </div>
 
-        <div class="service-card">
-            <h3>四輪椅</h3>
-            <p>長者與行動輔助使用</p>
-        </div>
 
         <div class="service-card">
-            <h3>助行器</h3>
-            <p>提升行走穩定與安全</p>
+
+            <div class="service-icon">
+                +
+            </div>
+
+            <h3>
+                四輪椅
+            </h3>
+
+            <p>
+                長者及行動輔助用品
+            </p>
+
         </div>
 
-        <div class="service-card">
-            <h3>柺杖</h3>
-            <p>多種尺寸與使用需求</p>
-        </div>
 
         <div class="service-card">
-            <h3>醫療配件</h3>
-            <p>各式醫療器材相關配件</p>
+
+            <div class="service-icon">
+                +
+            </div>
+
+            <h3>
+                助行器
+            </h3>
+
+            <p>
+                提升行走安全及穩定
+            </p>
+
         </div>
 
-        <div class="service-card">
-            <h3>保健食品</h3>
-            <p>醫療保健與營養產品</p>
-        </div>
 
         <div class="service-card">
-            <h3>馬桶椅</h3>
-            <p>居家與長期照護使用</p>
+
+            <div class="service-icon">
+                +
+            </div>
+
+            <h3>
+                柺杖
+            </h3>
+
+            <p>
+                多種尺寸與使用需求
+            </p>
+
         </div>
 
-        <div class="service-card">
-            <h3>氣墊床</h3>
-            <p>長期臥床照護用品</p>
-        </div>
 
         <div class="service-card">
-            <h3>醫療耗材</h3>
-            <p>各式醫療與照護耗材</p>
+
+            <div class="service-icon">
+                +
+            </div>
+
+            <h3>
+                馬桶椅
+            </h3>
+
+            <p>
+                居家及長期照護用品
+            </p>
+
         </div>
 
+
         <div class="service-card">
-            <h3>輔具維修</h3>
-            <p>各式輔具檢查與維修</p>
+
+            <div class="service-icon">
+                +
+            </div>
+
+            <h3>
+                氣墊床
+            </h3>
+
+            <p>
+                長期臥床照護使用
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                +
+            </div>
+
+            <h3>
+                醫療配件
+            </h3>
+
+            <p>
+                各式醫療器材相關配件
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                +
+            </div>
+
+            <h3>
+                醫療耗材
+            </h3>
+
+            <p>
+                日常醫療與照護耗材
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                +
+            </div>
+
+            <h3>
+                保健食品
+            </h3>
+
+            <p>
+                營養及保健相關產品
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                +
+            </div>
+
+            <h3>
+                輔具維修
+            </h3>
+
+            <p>
+                各式輔具檢查與維修
+            </p>
+
         </div>
 
     </div>
+
 </section>
 
-<section class="products" id="products">
+
+<!-- ================================
+     PRODUCT CATEGORY
+================================= -->
+
+<section class="category-preview">
+
     <div class="section-title">
-        <h2>產品專區</h2>
-        <p>富致康醫療輔具產品</p>
+
+        <span>
+            PRODUCT CATEGORIES
+        </span>
+
+        <h2>
+            產品分類
+        </h2>
+
+        <p>
+            依照您的照護與使用需求選擇產品
+        </p>
+
     </div>
+
+
+    <div class="category-grid">
+
+        <a
+            href="products.html?category=wheelchair"
+            class="category-card">
+
+            <h3>
+                輪椅系列
+            </h3>
+
+            <p>
+                Wheelchairs
+            </p>
+
+        </a>
+
+
+        <a
+            href="products.html?category=walker"
+            class="category-card">
+
+            <h3>
+                行動輔具
+            </h3>
+
+            <p>
+                助行器・四輪椅・柺杖
+            </p>
+
+        </a>
+
+
+        <a
+            href="products.html?category=care"
+            class="category-card">
+
+            <h3>
+                居家照護
+            </h3>
+
+            <p>
+                馬桶椅・氣墊床
+            </p>
+
+        </a>
+
+
+        <a
+            href="products.html?category=medical"
+            class="category-card">
+
+            <h3>
+                醫療用品
+            </h3>
+
+            <p>
+                醫療配件・耗材・保健用品
+            </p>
+
+        </a>
+
+    </div>
+
+
+    <div class="view-products">
+
+        <a href="products.html">
+            查看全部產品
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================================
+     FEATURED PRODUCT
+================================= -->
+
+<section
+    class="featured"
+    id="featured-product">
+
+    <div class="section-title">
+
+        <span>
+            FEATURED PRODUCT
+        </span>
+
+        <h2>
+            精選產品
+        </h2>
+
+        <p>
+            富致康輪椅系列
+        </p>
+
+    </div>
+
 
     <div class="product-container">
 
         <div class="product-images">
 
             <div class="product-image-box">
+
                 <img
                     src="images/fzk-ab-blue.png"
-                    alt="FZK-AB 躺舒芙 輪椅">
+                    alt="FZK-AB 躺舒芙">
+
             </div>
 
+
             <div class="product-image-box">
+
                 <img
                     src="images/fzk-ab-blue-recline.png"
-                    alt="FZK-AB 躺舒芙 仰躺狀態">
+                    alt="FZK-AB 躺舒芙 仰躺">
+
             </div>
 
         </div>
+
 
         <div class="product-info">
 
@@ -565,54 +1486,236 @@
                 輪椅系列
             </div>
 
-            <h2>FZK-AB 躺舒芙</h2>
+            <h2>
+                FZK-AB 躺舒芙
+            </h2>
 
             <p class="product-description">
+
                 鋁合金多功能仰躺式輪椅，
                 提供舒適乘坐與多角度仰躺調整，
-                適合居家照護與長時間乘坐需求。
+                適合居家照護及長時間乘坐使用。
+
             </p>
 
+
             <ul class="product-features">
-                <li>鋁合金材質</li>
-                <li>附頭靠組、防傾桿、胸帶、安全帶</li>
-                <li>扶手可掀、可拆、可調整高度</li>
-                <li>可拆卸骨科腳靠、可調高度</li>
-                <li>無段氣壓式仰躺，省力抬升調整 0–170°</li>
-                <li>收合體積小，方便收納</li>
+
+                <li>
+                    鋁合金材質
+                </li>
+
+                <li>
+                    附頭靠組、防傾桿、胸帶、安全帶
+                </li>
+
+                <li>
+                    扶手可掀、可拆、可調整高度
+                </li>
+
+                <li>
+                    可拆卸骨科腳靠、可調高度
+                </li>
+
+                <li>
+                    無段氣壓式仰躺，省力抬升調整 0–170°
+                </li>
+
+                <li>
+                    收合體積小，方便收納
+                </li>
+
             </ul>
 
+
             <div class="subsidy">
-                <strong>符合補助項目</strong>
-                <span>輪椅-B款・附加A・附加B</span>
+
+                <strong>
+                    符合補助項目
+                </strong>
+
+                輪椅-B款・附加A・附加B
+
             </div>
 
-            <a href="#contact" class="product-button">
-                洽詢此產品
+
+            <a
+                href="products.html?category=wheelchair"
+                class="product-link">
+
+                查看輪椅產品
+
             </a>
 
         </div>
 
     </div>
+
 </section>
 
-<section class="contact" id="contact">
+
+<!-- ================================
+     CONTACT
+================================= -->
+
+<section
+    class="contact"
+    id="contact">
+
     <div class="section-title">
-        <h2>聯絡我們</h2>
-        <p>歡迎洽詢產品與輔具相關服務</p>
+
+        <span>
+            CONTACT US
+        </span>
+
+        <h2>
+            聯絡我們
+        </h2>
+
+        <p>
+            歡迎來電洽詢產品、醫療器材與輔具相關服務
+        </p>
+
     </div>
 
-    <div class="contact-box">
-        <p><strong>富致康醫療器材</strong></p>
-        <p>電話：請填入公司電話</p>
-        <p>地址：請填入公司地址</p>
-        <p>LINE：請填入 LINE 資訊</p>
+
+    <div class="contact-container">
+
+
+        <div class="contact-info">
+
+            <h3>
+                富致康醫療器材
+            </h3>
+
+            <p class="contact-intro">
+
+                如有商品、輔具或醫療器材相關需求，
+                歡迎與我們聯繫。
+
+            </p>
+
+
+            <div class="contact-item">
+
+                <span class="contact-label">
+                    聯絡電話
+                </span>
+
+                <div class="contact-value">
+
+                    <a href="tel:034393948">
+                        03-439-3948
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <span class="contact-label">
+                    公司傳真
+                </span>
+
+                <div class="contact-value">
+                    03-439-8213
+                </div>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <span class="contact-label">
+                    電子信箱
+                </span>
+
+                <div class="contact-value">
+
+                    <a href="mailto:fuzikon.co@gmail.com">
+                        fuzikon.co@gmail.com
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <span class="contact-label">
+                    公司地址
+                </span>
+
+                <div class="contact-value">
+
+                    桃園市平鎮區南東路271之2號
+
+                </div>
+
+            </div>
+
+
+            <div class="contact-buttons">
+
+                <a href="tel:034393948">
+                    電話洽詢
+                </a>
+
+
+                <a href="mailto:fuzikon.co@gmail.com">
+                    Email 洽詢
+                </a>
+
+
+                <a
+                    href="https://www.google.com/maps/search/?api=1&query=桃園市平鎮區南東路271之2號"
+                    target="_blank">
+
+                    Google Maps 導航
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="map-box">
+
+            <iframe
+
+                src="https://www.google.com/maps?q=桃園市平鎮區南東路271之2號&output=embed"
+
+                loading="lazy"
+
+                referrerpolicy="no-referrer-when-downgrade"
+
+                title="富致康醫療器材地圖">
+
+            </iframe>
+
+        </div>
+
     </div>
+
 </section>
+
+
+<!-- ================================
+     FOOTER
+================================= -->
 
 <footer>
-    © 2026 富致康醫療器材 All Rights Reserved.
+
+    © 2026 富致康醫療器材
+    ｜ 桃園市平鎮區南東路271之2號
+    ｜ 03-439-3948
+
 </footer>
 
 </body>
+
 </html>
