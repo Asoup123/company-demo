@@ -13,6 +13,8 @@
         產品專區｜富致康醫療器材
     </title>
 
+    <meta name="description"
+          content="富致康醫療器材產品專區，提供輪椅、行動輔具、照護輔具、醫療用品及輔具維修服務。">
 
     <style>
 
@@ -34,7 +36,6 @@
                 sans-serif;
 
             background: #f6f9fb;
-
             color: #333;
 
             line-height: 1.7;
@@ -44,24 +45,21 @@
             text-decoration: none;
         }
 
-
-        /* ================================
+        /* =========================
            HEADER
-        ================================= */
+        ========================= */
 
         header {
-            height: 82px;
+            min-height: 82px;
 
-            padding: 0 7%;
+            padding: 12px 7%;
 
             display: flex;
             justify-content: space-between;
             align-items: center;
 
             position: sticky;
-
             top: 0;
-
             z-index: 1000;
 
             background:
@@ -71,91 +69,77 @@
                 0 3px 18px rgba(0,0,0,0.06);
         }
 
-
         .logo {
             display: flex;
             align-items: center;
 
             gap: 14px;
 
-            color: #087eb4;
+            color: #0797d3;
 
             font-size: 22px;
-
             font-weight: 800;
         }
 
-
         .logo img {
             height: 54px;
-
             width: auto;
         }
 
-
         nav {
             display: flex;
-
             align-items: center;
 
-            gap: 28px;
+            gap: 25px;
         }
-
 
         nav a {
             color: #333;
 
             font-size: 15px;
-
             font-weight: 600;
         }
 
-
         nav a:hover {
-            color: #079bd8;
+            color: #0797d3;
         }
-
 
         .home-button {
             padding: 9px 18px;
 
             color: white !important;
-
-            background: #079bd8;
+            background: #0797d3;
 
             border-radius: 7px;
         }
 
-
-        /* ================================
-           PAGE HERO
-        ================================= */
+        /* =========================
+           HERO
+        ========================= */
 
         .page-hero {
             padding:
-                80px 8% 75px;
-
-            color: white;
+                82px 8% 76px;
 
             text-align: center;
+
+            color: white;
 
             background:
                 linear-gradient(
                     135deg,
-                    #075d85,
+                    #075b82,
                     #079bd8
                 );
         }
 
-
         .page-hero span {
-            font-size: 14px;
+            font-size: 13px;
 
             letter-spacing: 3px;
 
             opacity: 0.8;
         }
-
 
         .page-hero h1 {
             margin:
@@ -164,9 +148,8 @@
             font-size: 44px;
         }
 
-
         .page-hero p {
-            max-width: 650px;
+            max-width: 700px;
 
             margin: auto;
 
@@ -174,16 +157,14 @@
                 rgba(255,255,255,0.87);
         }
 
-
-        /* ================================
-           CATEGORY
-        ================================= */
+        /* =========================
+           FILTER
+        ========================= */
 
         .category-section {
             padding:
-                65px 8% 35px;
+                55px 8% 25px;
         }
-
 
         .category-buttons {
             max-width: 1100px;
@@ -191,7 +172,6 @@
             margin: auto;
 
             display: flex;
-
             justify-content: center;
 
             gap: 10px;
@@ -199,75 +179,64 @@
             flex-wrap: wrap;
         }
 
-
         .category-button {
             padding:
                 10px 20px;
+
+            color: #555;
+            background: white;
 
             border:
                 1px solid #d7e2e7;
 
             border-radius: 30px;
 
-            background: white;
-
-            color: #555;
-
             cursor: pointer;
 
             font-family: inherit;
-
             font-size: 15px;
 
             transition: 0.25s;
         }
 
-
         .category-button:hover,
         .category-button.active {
             color: white;
+            background: #0797d3;
 
-            background: #079bd8;
-
-            border-color: #079bd8;
+            border-color: #0797d3;
         }
 
-
-        /* ================================
+        /* =========================
            PRODUCTS
-        ================================= */
+        ========================= */
 
         .products-section {
             padding:
-                25px 8% 100px;
+                30px 8% 100px;
         }
 
-
         .products-container {
-            max-width: 1200px;
+            max-width: 1250px;
 
             margin: auto;
         }
 
-
         .products-heading {
-            margin-bottom: 28px;
+            margin-bottom: 30px;
         }
-
 
         .products-heading h2 {
+            margin-bottom: 4px;
+
             color: #164c65;
 
-            font-size: 31px;
-
-            margin-bottom: 4px;
+            font-size: 32px;
         }
-
 
         .products-heading p {
             color: #777;
         }
-
 
         .product-grid {
             display: grid;
@@ -275,9 +244,8 @@
             grid-template-columns:
                 repeat(3, 1fr);
 
-            gap: 24px;
+            gap: 25px;
         }
-
 
         .product-card {
             overflow: hidden;
@@ -285,185 +253,191 @@
             background: white;
 
             border:
-                1px solid #e2eaee;
+                1px solid #e1e9ed;
 
-            border-radius: 16px;
+            border-radius: 17px;
+
+            box-shadow:
+                0 4px 16px rgba(0,0,0,0.035);
 
             transition: 0.3s;
-
-            box-shadow:
-                0 3px 15px rgba(0,0,0,0.03);
         }
-
 
         .product-card:hover {
-            transform:
-                translateY(-6px);
+            transform: translateY(-7px);
 
             box-shadow:
-                0 15px 35px rgba(0,0,0,0.08);
+                0 16px 36px rgba(0,0,0,0.09);
         }
 
-
         .product-image {
-            height: 350px;
+            height: 380px;
 
             padding: 25px;
 
             display: flex;
-
             align-items: center;
-
             justify-content: center;
 
-            background: #f7f9fa;
-        }
+            position: relative;
 
+            background: #f8fafb;
+        }
 
         .product-image img {
             width: 100%;
-
             height: 100%;
 
             object-fit: contain;
         }
 
+        .second-image {
+            position: absolute;
 
-        .product-content {
-            padding:
-                23px;
+            left: 0;
+            top: 0;
+
+            width: 100%;
+            height: 100%;
+
+            padding: 25px;
+
+            object-fit: contain;
+
+            opacity: 0;
+
+            background: #f8fafb;
+
+            transition: 0.35s;
         }
 
+        .product-card:hover .second-image {
+            opacity: 1;
+        }
+
+        .product-content {
+            padding: 24px;
+        }
 
         .product-type {
             display: inline-block;
 
             padding:
-                4px 11px;
+                5px 12px;
 
             margin-bottom: 8px;
 
-            color: #079bd8;
-
+            color: #0797d3;
             background: #e8f7fc;
 
             border-radius: 20px;
 
             font-size: 12px;
-
             font-weight: 800;
         }
 
-
         .product-content h3 {
+            margin-bottom: 9px;
+
             color: #222;
 
-            font-size: 23px;
-
-            margin-bottom: 9px;
+            font-size: 24px;
         }
 
+        .product-intro {
+            min-height: 72px;
 
-        .product-content p {
-            min-height: 55px;
-
-            color: #777;
+            color: #707070;
 
             font-size: 14px;
         }
 
-
         .product-features {
             margin:
-                16px 0;
+                17px 0;
 
             padding-top: 13px;
 
+            list-style: none;
+
             border-top:
                 1px solid #eee;
-
-            list-style: none;
         }
 
-
         .product-features li {
-            margin:
-                6px 0;
+            position: relative;
+
+            margin: 7px 0;
+
+            padding-left: 22px;
 
             color: #555;
 
             font-size: 14px;
         }
 
-
         .product-features li::before {
             content: "✓";
 
-            margin-right: 8px;
+            position: absolute;
 
-            color: #079bd8;
+            left: 0;
+
+            color: #0797d3;
 
             font-weight: bold;
         }
-
 
         .subsidy {
             margin-bottom: 18px;
 
             padding:
-                10px 12px;
-
-            border-radius: 6px;
-
-            background: #f0f8fb;
+                11px 13px;
 
             color: #176182;
+            background: #f0f8fb;
+
+            border-radius: 7px;
 
             font-size: 13px;
-
             font-weight: 700;
         }
 
-
         .ask-button {
-            display: inline-block;
+            display: block;
 
             width: 100%;
 
             padding: 11px;
 
+            color: white;
+            background: #0797d3;
+
             border-radius: 7px;
 
             text-align: center;
 
-            background: #079bd8;
-
-            color: white;
-
             font-weight: 700;
-        }
 
+            transition: 0.25s;
+        }
 
         .ask-button:hover {
-            background: #087eae;
+            background: #087ead;
         }
 
-
-        /* ================================
+        /* =========================
            COMING SOON
-        ================================= */
+        ========================= */
 
         .coming-card {
-            min-height: 470px;
+            min-height: 540px;
 
             padding: 40px;
 
             display: flex;
-
             flex-direction: column;
-
             align-items: center;
-
             justify-content: center;
 
             text-align: center;
@@ -471,36 +445,29 @@
             background: white;
 
             border:
-                1px dashed #cbd9df;
+                1px dashed #c7d7de;
 
-            border-radius: 16px;
+            border-radius: 17px;
         }
 
-
         .coming-icon {
-            width: 70px;
-
-            height: 70px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
+            width: 72px;
+            height: 72px;
 
             margin-bottom: 18px;
 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: #0797d3;
+            background: #e8f7fc;
+
             border-radius: 50%;
 
-            background: #eaf7fc;
-
-            color: #079bd8;
-
             font-size: 30px;
-
-            font-weight: bold;
+            font-weight: 900;
         }
-
 
         .coming-card h3 {
             margin-bottom: 8px;
@@ -510,36 +477,31 @@
             font-size: 22px;
         }
 
-
         .coming-card p {
             color: #888;
 
             font-size: 14px;
         }
 
-
-        /* ================================
+        /* =========================
            HELP
-        ================================= */
+        ========================= */
 
         .help-section {
             padding:
-                60px 8%;
+                65px 8%;
 
             color: white;
+            background: #143f53;
 
             text-align: center;
-
-            background: #143f53;
         }
 
-
         .help-section h2 {
-            margin-bottom: 7px;
+            margin-bottom: 8px;
 
             font-size: 30px;
         }
-
 
         .help-section p {
             margin-bottom: 22px;
@@ -548,10 +510,8 @@
                 rgba(255,255,255,0.8);
         }
 
-
         .help-buttons {
             display: flex;
-
             justify-content: center;
 
             gap: 12px;
@@ -559,24 +519,21 @@
             flex-wrap: wrap;
         }
 
-
         .help-buttons a {
             padding:
                 11px 21px;
 
-            border-radius: 6px;
-
-            color: #087eae;
-
+            color: #087ead;
             background: white;
+
+            border-radius: 6px;
 
             font-weight: 700;
         }
 
-
-        /* ================================
+        /* =========================
            FOOTER
-        ================================= */
+        ========================= */
 
         footer {
             padding: 28px;
@@ -591,57 +548,42 @@
             font-size: 14px;
         }
 
-
-        /* ================================
-           FILTER
-        ================================= */
-
         .product-item {
             display: block;
         }
-
 
         .product-item.hidden {
             display: none;
         }
 
-
-        /* ================================
-           MOBILE
-        ================================= */
+        /* =========================
+           RWD
+        ========================= */
 
         @media (max-width: 1000px) {
 
             .product-grid {
                 grid-template-columns:
-                    repeat(2,1fr);
+                    repeat(2, 1fr);
             }
 
         }
 
-
         @media (max-width: 750px) {
 
             header {
-                height: auto;
-
-                padding:
-                    12px 5%;
-
                 flex-direction: column;
 
                 gap: 12px;
             }
 
-
             nav {
-                flex-wrap: wrap;
-
                 justify-content: center;
+
+                flex-wrap: wrap;
 
                 gap: 14px;
             }
-
 
             .page-hero h1 {
                 font-size: 36px;
@@ -649,35 +591,28 @@
 
         }
 
-
         @media (max-width: 600px) {
 
             .logo {
                 font-size: 19px;
             }
 
-
             .logo img {
                 height: 44px;
             }
 
-
             .product-grid {
-                grid-template-columns:
-                    1fr;
+                grid-template-columns: 1fr;
             }
-
 
             .product-image {
-                height: 320px;
+                height: 350px;
             }
-
 
             .page-hero {
                 padding:
                     60px 6%;
             }
-
 
             .category-section,
             .products-section {
@@ -691,13 +626,8 @@
 
 </head>
 
-
 <body>
 
-
-<!-- ================================
-     HEADER
-================================= -->
 
 <header>
 
@@ -715,15 +645,12 @@
 
     </a>
 
-
     <nav>
 
         <a
             href="index.html"
             class="home-button">
-
             回到首頁
-
         </a>
 
         <a href="index.html#about">
@@ -739,10 +666,6 @@
 </header>
 
 
-<!-- ================================
-     HERO
-================================= -->
-
 <section class="page-hero">
 
     <span>
@@ -754,18 +677,12 @@
     </h1>
 
     <p>
-
-        提供各式醫療器材、行動輔具及居家照護用品，
-        可依照不同使用需求選擇合適產品。
-
+        提供各式醫療器材、輪椅、行動輔具、
+        醫療用品及相關輔具產品。
     </p>
 
 </section>
 
-
-<!-- ================================
-     CATEGORY FILTER
-================================= -->
 
 <section class="category-section">
 
@@ -779,7 +696,6 @@
 
         </button>
 
-
         <button
             class="category-button"
             data-category="wheelchair">
@@ -788,24 +704,21 @@
 
         </button>
 
-
         <button
             class="category-button"
-            data-category="walker">
+            data-category="mobility">
 
             行動輔具
 
         </button>
 
-
         <button
             class="category-button"
-            data-category="care">
+            data-category="assistive">
 
-            居家照護
+            照護輔具
 
         </button>
-
 
         <button
             class="category-button"
@@ -814,7 +727,6 @@
             醫療用品
 
         </button>
-
 
         <button
             class="category-button"
@@ -828,10 +740,6 @@
 
 </section>
 
-
-<!-- ================================
-     PRODUCTS
-================================= -->
 
 <section class="products-section">
 
@@ -849,18 +757,16 @@
 
         </div>
 
-
         <div class="product-grid">
 
 
-            <!-- =================================
+            <!-- =========================
                  FZK-AB
-            ================================== -->
+            ========================== -->
 
             <div
                 class="product-card product-item"
                 data-category="wheelchair">
-
 
                 <div class="product-image">
 
@@ -868,8 +774,12 @@
                         src="images/fzk-ab-blue.png"
                         alt="FZK-AB 躺舒芙">
 
-                </div>
+                    <img
+                        class="second-image"
+                        src="images/fzk-ab-blue-recline.png"
+                        alt="FZK-AB 躺舒芙仰躺">
 
+                </div>
 
                 <div class="product-content">
 
@@ -877,20 +787,15 @@
                         輪椅系列
                     </span>
 
-
                     <h3>
                         FZK-AB 躺舒芙
                     </h3>
 
-
-                    <p>
-
+                    <p class="product-intro">
                         鋁合金多功能仰躺式輪椅，
-                        支援無段氣壓式仰躺，
-                        適合居家及長期照護使用。
-
+                        採無段氣壓式仰躺設計，
+                        可依需求調整坐姿角度。
                     </p>
-
 
                     <ul class="product-features">
 
@@ -899,34 +804,36 @@
                         </li>
 
                         <li>
-                            0–170° 無段仰躺
+                            附頭靠組、防傾桿、胸帶、安全帶
                         </li>
 
                         <li>
-                            可拆卸骨科腳靠
+                            扶手可掀、可拆、可調整高度
                         </li>
 
                         <li>
-                            扶手可掀、可拆、可調高
+                            可拆卸骨科腳靠、可調高度
+                        </li>
+
+                        <li>
+                            無段氣壓式仰躺 0–170°
+                        </li>
+
+                        <li>
+                            收合體積小，方便收納
                         </li>
 
                     </ul>
 
-
                     <div class="subsidy">
-
-                        補助項目：
+                        符合補助項目：
                         輪椅-B款・附加A・附加B
-
                     </div>
 
-
                     <a
-                        class="ask-button"
-                        href="index.html#featured-product">
-
-                        查看產品介紹
-
+                        href="index.html#contact"
+                        class="ask-button">
+                        洽詢此產品
                     </a>
 
                 </div>
@@ -934,13 +841,166 @@
             </div>
 
 
-            <!-- =================================
+            <!-- =========================
+                 FZK-AC
+            ========================== -->
+
+            <div
+                class="product-card product-item"
+                data-category="wheelchair">
+
+                <div class="product-image">
+
+                    <img
+                        src="images/fzk-ac-red.png"
+                        alt="FZK-AC 傾舒芙">
+
+                    <img
+                        class="second-image"
+                        src="images/fzk-ac-red-tilt.png"
+                        alt="FZK-AC 傾舒芙後傾">
+
+                </div>
+
+                <div class="product-content">
+
+                    <span class="product-type">
+                        輪椅系列
+                    </span>
+
+                    <h3>
+                        FZK-AC 傾舒芙
+                    </h3>
+
+                    <p class="product-intro">
+                        鋁合金氣壓式後傾輪椅，
+                        支援無段空中傾倒，
+                        可依使用需求調整後傾角度。
+                    </p>
+
+                    <ul class="product-features">
+
+                        <li>
+                            鋁合金材質
+                        </li>
+
+                        <li>
+                            附頭靠組、防傾桿、胸帶、安全帶
+                        </li>
+
+                        <li>
+                            扶手可掀、可拆、可調整高度
+                        </li>
+
+                        <li>
+                            氣壓式無段後傾
+                        </li>
+
+                        <li>
+                            空中傾倒 0–35°
+                        </li>
+
+                        <li>
+                            收合體積小，方便收納
+                        </li>
+
+                    </ul>
+
+                    <div class="subsidy">
+                        符合補助項目：
+                        輪椅-B款・附加A・附加C
+                    </div>
+
+                    <a
+                        href="index.html#contact"
+                        class="ask-button">
+                        洽詢此產品
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 K4
+            ========================== -->
+
+            <div
+                class="product-card product-item"
+                data-category="wheelchair">
+
+                <div class="product-image">
+
+                    <img
+                        src="images/fzk-k4.png"
+                        alt="K4 拆手拆腳系列">
+
+                </div>
+
+                <div class="product-content">
+
+                    <span class="product-type">
+                        輪椅系列
+                    </span>
+
+                    <h3>
+                        K4 拆手拆腳系列
+                    </h3>
+
+                    <p class="product-intro">
+                        輕量化鋁合金輪椅，
+                        扶手及腳踏皆可拆卸，
+                        並提供多種後輪尺寸選擇。
+                    </p>
+
+                    <ul class="product-features">
+
+                        <li>
+                            輕量化鋁合金材質
+                        </li>
+
+                        <li>
+                            扶手可掀、可拆
+                        </li>
+
+                        <li>
+                            腳踏可拆
+                        </li>
+
+                        <li>
+                            雙層坐墊布
+                        </li>
+
+                        <li>
+                            後輪可選 16 吋、20 吋、24 吋
+                        </li>
+
+                    </ul>
+
+                    <div class="subsidy">
+                        符合補助項目：
+                        輪椅-B款・附加A
+                    </div>
+
+                    <a
+                        href="index.html#contact"
+                        class="ask-button">
+                        洽詢此產品
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
                  行動輔具
-            ================================== -->
+            ========================== -->
 
             <div
                 class="coming-card product-item"
-                data-category="walker">
+                data-category="mobility">
 
                 <div class="coming-icon">
                     +
@@ -951,38 +1011,40 @@
                 </h3>
 
                 <p>
-                    四輪椅、助行器、柺杖等產品資料整理中
+                    四輪椅、助行器、柺杖等產品
+                    將陸續新增。
                 </p>
 
             </div>
 
 
-            <!-- =================================
-                 居家照護
-            ================================== -->
+            <!-- =========================
+                 照護輔具
+            ========================== -->
 
             <div
                 class="coming-card product-item"
-                data-category="care">
+                data-category="assistive">
 
                 <div class="coming-icon">
                     +
                 </div>
 
                 <h3>
-                    居家照護用品
+                    照護輔具
                 </h3>
 
                 <p>
-                    馬桶椅、氣墊床等產品資料整理中
+                    馬桶椅、氣墊床等輔具產品
+                    將陸續新增。
                 </p>
 
             </div>
 
 
-            <!-- =================================
+            <!-- =========================
                  醫療用品
-            ================================== -->
+            ========================== -->
 
             <div
                 class="coming-card product-item"
@@ -997,15 +1059,16 @@
                 </h3>
 
                 <p>
-                    醫療配件、耗材及保健相關產品資料整理中
+                    醫療配件、耗材與保健相關產品
+                    將陸續新增。
                 </p>
 
             </div>
 
 
-            <!-- =================================
+            <!-- =========================
                  維修
-            ================================== -->
+            ========================== -->
 
             <div
                 class="coming-card product-item"
@@ -1020,11 +1083,11 @@
                 </h3>
 
                 <p>
-                    提供各式輔具檢查、零件及維修相關服務
+                    提供各式輔具檢查、零件與維修服務，
+                    歡迎來電洽詢。
                 </p>
 
             </div>
-
 
         </div>
 
@@ -1033,10 +1096,6 @@
 </section>
 
 
-<!-- ================================
-     HELP
-================================= -->
-
 <section class="help-section">
 
     <h2>
@@ -1044,33 +1103,22 @@
     </h2>
 
     <p>
-
         歡迎聯絡富致康，
-        依照您的使用需求洽詢合適的產品。
-
+        依照您的使用需求洽詢適合的產品。
     </p>
-
 
     <div class="help-buttons">
 
         <a href="tel:034393948">
-
             電話 03-439-3948
-
         </a>
-
 
         <a href="mailto:fuzikon.co@gmail.com">
-
             Email 洽詢
-
         </a>
 
-
         <a href="index.html#contact">
-
-            查看門市資訊
-
+            門市與聯絡資訊
         </a>
 
     </div>
@@ -1087,10 +1135,6 @@
 </footer>
 
 
-<!-- ================================
-     CATEGORY FILTER SCRIPT
-================================= -->
-
 <script>
 
     const buttons =
@@ -1098,24 +1142,20 @@
             ".category-button"
         );
 
-
     const products =
         document.querySelectorAll(
             ".product-item"
         );
-
 
     const title =
         document.getElementById(
             "category-title"
         );
 
-
     const description =
         document.getElementById(
             "category-description"
         );
-
 
     const categoryText = {
 
@@ -1126,22 +1166,22 @@
 
         wheelchair: [
             "輪椅系列",
-            "各式照護與行動需求輪椅"
+            "各式輪椅與特殊功能輪椅"
         ],
 
-        walker: [
+        mobility: [
             "行動輔具",
-            "四輪椅、助行器與柺杖"
+            "四輪椅、助行器與柺杖等產品"
         ],
 
-        care: [
-            "居家照護",
-            "長期與居家照護相關用品"
+        assistive: [
+            "照護輔具",
+            "馬桶椅、氣墊床等輔具產品"
         ],
 
         medical: [
             "醫療用品",
-            "醫療配件、醫療耗材與保健用品"
+            "醫療配件、耗材與保健相關產品"
         ],
 
         repair: [
@@ -1150,7 +1190,6 @@
         ]
 
     };
-
 
     function filterProducts(category) {
 
@@ -1172,7 +1211,6 @@
             }
 
         });
-
 
         products.forEach(product => {
 
@@ -1196,7 +1234,6 @@
 
         });
 
-
         if (categoryText[category]) {
 
             title.textContent =
@@ -1208,7 +1245,6 @@
         }
 
     }
-
 
     buttons.forEach(button => {
 
@@ -1225,21 +1261,13 @@
 
     });
 
-
-    /* ================================
-       接收首頁分類連結
-       ?category=wheelchair
-    ================================= */
-
     const params =
         new URLSearchParams(
             window.location.search
         );
 
-
     const requestedCategory =
         params.get("category");
-
 
     if (
         requestedCategory &&
@@ -1253,7 +1281,6 @@
     }
 
 </script>
-
 
 </body>
 
