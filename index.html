@@ -32,9 +32,18 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
             font-size: 24px;
             font-weight: bold;
             color: #1c5d78;
+        }
+
+        .logo img {
+            height: 52px;
+            width: auto;
+            display: block;
         }
 
         nav a {
@@ -203,7 +212,10 @@
 <body>
 
     <header>
-        <div class="logo">富致康醫療器材</div>
+        <div class="logo">
+            <img src="images/fzk.png" alt="富致康醫療器材 Logo">
+            <span>富致康醫療器材</span>
+        </div>
 
         <nav>
             <a href="#home">首頁</a>
