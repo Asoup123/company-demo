@@ -394,25 +394,6 @@
                 0 12px 30px rgba(0,0,0,0.08);
         }
 
-        .service-icon {
-            width: 48px;
-            height: 48px;
-
-            margin: 0 auto 14px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 50%;
-
-            background: #e8f7fc;
-            color: #0797d3;
-
-            font-size: 24px;
-            font-weight: 900;
-        }
-
         .service-card h3 {
             margin-bottom: 5px;
 
@@ -978,6 +959,45 @@
 
         }
 
+    
+        /* 導覽列藍色滑動選取框 */
+        nav {
+            position: relative;
+        }
+
+        nav a {
+            position: relative;
+            z-index: 2;
+            transition: color 0.25s ease;
+        }
+
+        .nav-indicator {
+            position: absolute;
+            z-index: 1;
+            top: 50%;
+            left: 0;
+            height: 54px;
+            border-radius: 10px;
+            background: #0797d3;
+            transform: translateY(-50%);
+            transition: left 0.32s ease, width 0.32s ease;
+            pointer-events: none;
+        }
+
+        nav a.nav-current {
+            color: #ffffff !important;
+        }
+
+        @media (max-width: 750px) {
+            .nav-indicator {
+                display: none;
+            }
+
+            nav a.nav-current {
+                color: #0797d3 !important;
+            }
+        }
+
     </style>
 
 </head>
@@ -1000,6 +1020,8 @@
 
     <nav>
 
+        <div class="nav-indicator"></div>
+
         <a href="#home">
             首頁
         </a>
@@ -1012,9 +1034,8 @@
             服務項目
         </a>
 
-        <a href="products.html"
-           class="nav-product">
-            產品專區
+        <a href="#products">
+            熱賣商品
         </a>
 
         <a href="#contact">
@@ -1150,61 +1171,51 @@
     <div class="service-grid">
 
         <div class="service-card">
-            <div class="service-icon">+</div>
             <h3>輪椅</h3>
             <p>各式輪椅與特殊功能輪椅</p>
         </div>
 
         <div class="service-card">
-            <div class="service-icon">+</div>
             <h3>四輪椅</h3>
             <p>行動輔助相關產品</p>
         </div>
 
         <div class="service-card">
-            <div class="service-icon">+</div>
             <h3>助行器</h3>
             <p>提升行走安全與穩定</p>
         </div>
 
         <div class="service-card">
-            <div class="service-icon">+</div>
             <h3>柺杖</h3>
             <p>各式尺寸與類型</p>
         </div>
 
         <div class="service-card">
-            <div class="service-icon">+</div>
             <h3>馬桶椅</h3>
             <p>各式輔具用品</p>
         </div>
 
         <div class="service-card">
-            <div class="service-icon">+</div>
             <h3>氣墊床</h3>
             <p>醫療器材相關產品</p>
         </div>
 
         <div class="service-card">
-            <div class="service-icon">+</div>
             <h3>醫療配件</h3>
             <p>各式醫療器材相關配件</p>
         </div>
 
         <div class="service-card">
-            <div class="service-icon">+</div>
             <h3>醫療耗材</h3>
             <p>各式醫療耗材用品</p>
         </div>
 
         <div class="service-card">
-            <div class="service-icon">+</div>
             <h3>保健食品</h3>
             <p>保健與營養相關產品</p>
         </div>
 
         <div class="service-card">
-            <div class="service-icon">+</div>
             <h3>輔具維修</h3>
             <p>各式輔具檢查與維修</p>
         </div>
@@ -1299,7 +1310,7 @@
 
 <!-- FEATURED PRODUCTS -->
 
-<section class="featured">
+<section class="featured" id="products">
 
     <div class="section-title">
 
@@ -1625,6 +1636,107 @@
     ｜ 03-439-3948
 
 </footer>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const nav = document.querySelector("header nav");
+    if (!nav) return;
+
+    const indicator = nav.querySelector(".nav-indicator");
+
+    const links = Array.from(
+        nav.querySelectorAll('a[href^="#"]')
+    );
+
+    const sectionIds = [
+        "home",
+        "about",
+        "services",
+        "products",
+        "contact"
+    ];
+
+    function moveIndicator(link) {
+
+        if (!link) return;
+
+        links.forEach(function (item) {
+            item.classList.remove("nav-current");
+        });
+
+        link.classList.add("nav-current");
+
+        if (indicator && window.innerWidth > 750) {
+            indicator.style.width = link.offsetWidth + "px";
+            indicator.style.left = link.offsetLeft + "px";
+        }
+    }
+
+    function updateActiveNav() {
+
+        const scrollPosition =
+            window.scrollY + 180;
+
+        let currentId = "home";
+
+        sectionIds.forEach(function (id) {
+
+            const section =
+                document.getElementById(id);
+
+            if (
+                section &&
+                section.offsetTop <= scrollPosition
+            ) {
+                currentId = id;
+            }
+
+        });
+
+        if (
+            window.innerHeight + window.scrollY >=
+            document.documentElement.scrollHeight - 10
+        ) {
+            currentId = "contact";
+        }
+
+        const currentLink =
+            links.find(function (link) {
+                return link.getAttribute("href") ===
+                       "#" + currentId;
+            });
+
+        moveIndicator(currentLink);
+    }
+
+    links.forEach(function (link) {
+
+        link.addEventListener(
+            "click",
+            function () {
+                moveIndicator(link);
+            }
+        );
+
+    });
+
+    window.addEventListener(
+        "scroll",
+        updateActiveNav,
+        { passive: true }
+    );
+
+    window.addEventListener(
+        "resize",
+        updateActiveNav
+    );
+
+    updateActiveNav();
+
+});
+</script>
 
 </body>
 
