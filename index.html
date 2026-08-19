@@ -3,18 +3,331 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>公司網站 Demo</title>
+    <title>富致康醫療器材</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Microsoft JhengHei", Arial, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: #f7f9fb;
+        }
+
+        header {
+            background: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1c5d78;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 24px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #1c5d78;
+        }
+
+        .hero {
+            min-height: 520px;
+            background: linear-gradient(
+                rgba(20, 70, 90, 0.72),
+                rgba(20, 70, 90, 0.72)
+            ),
+            url("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1600&q=80");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            padding: 0 8%;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 28px;
+        }
+
+        .hero-button {
+            display: inline-block;
+            padding: 12px 26px;
+            background: white;
+            color: #1c5d78;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 34px;
+            color: #1c5d78;
+            margin-bottom: 10px;
+        }
+
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .services {
+            background: #f2f6f8;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .service-card {
+            background: white;
+            padding: 28px 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+            transition: 0.25s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            color: #1c5d78;
+            margin-bottom: 8px;
+        }
+
+        .contact {
+            background: white;
+            text-align: center;
+        }
+
+        .contact p {
+            margin-bottom: 8px;
+            font-size: 17px;
+        }
+
+        footer {
+            background: #173f50;
+            color: white;
+            text-align: center;
+            padding: 24px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 900px) {
+            .service-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .hero {
+                min-height: 440px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>歡迎來到我們的公司</h1>
+    <header>
+        <div class="logo">富致康醫療器材</div>
 
-    <p>這是我們正在製作中的官方網站。</p>
+        <nav>
+            <a href="#home">首頁</a>
+            <a href="#about">關於我們</a>
+            <a href="#services">服務項目</a>
+            <a href="#contact">聯絡我們</a>
+        </nav>
+    </header>
 
-    <h2>產品介紹</h2>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>富致康醫療器材</h1>
 
-    <p>我們將在這裡展示公司的產品與服務。</p>
+            <p>
+                專業醫療器材與居家照護用品，
+                提供安心、可靠的產品與服務。
+            </p>
+
+            <a href="#services" class="hero-button">
+                查看服務項目
+            </a>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="section-title">
+            <h2>關於富致康</h2>
+            <p>專業・安心・用心服務</p>
+        </div>
+
+        <div class="about-content">
+            <p>
+                富致康醫療器材成立經營於2010年，
+                專營醫療器材用品、醫療儀器設備、
+                居家長期照護用品、保健食品、
+                各式醫療耗材用品之批發、零售及維修。
+            </p>
+
+            <br>
+
+            <p>
+                我們致力於提供專業且完善的醫療照護產品，
+                協助長者、照護者與有輔具需求的使用者，
+                找到更適合日常生活的醫療與照護用品。
+            </p>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="section-title">
+            <h2>服務項目</h2>
+            <p>醫療器材・照護用品・輔具維修</p>
+        </div>
+
+        <div class="service-grid">
+
+            <div class="service-card">
+                <h3>輪椅</h3>
+                <p>各式居家與照護用輪椅</p>
+            </div>
+
+            <div class="service-card">
+                <h3>四輪椅</h3>
+                <p>適合長者及行動輔助使用</p>
+            </div>
+
+            <div class="service-card">
+                <h3>助行器</h3>
+                <p>提升行走安全與穩定性</p>
+            </div>
+
+            <div class="service-card">
+                <h3>柺杖</h3>
+                <p>多種尺寸及使用需求</p>
+            </div>
+
+            <div class="service-card">
+                <h3>馬桶椅</h3>
+                <p>居家與長期照護使用</p>
+            </div>
+
+            <div class="service-card">
+                <h3>氣墊床</h3>
+                <p>長期臥床照護相關用品</p>
+            </div>
+
+            <div class="service-card">
+                <h3>醫療配件</h3>
+                <p>各式醫療器材相關配件</p>
+            </div>
+
+            <div class="service-card">
+                <h3>輔具維修</h3>
+                <p>提供各式輔具檢查與維修</p>
+            </div>
+
+            <div class="service-card">
+                <h3>醫療耗材</h3>
+                <p>醫療與日常照護耗材用品</p>
+            </div>
+
+            <div class="service-card">
+                <h3>保健食品</h3>
+                <p>醫療保健及營養相關產品</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="section-title">
+            <h2>聯絡我們</h2>
+            <p>歡迎洽詢產品與輔具相關服務</p>
+        </div>
+
+        <p>富致康醫療器材</p>
+        <p>電話：請填入公司電話</p>
+        <p>地址：請填入公司地址</p>
+        <p>LINE：請填入 LINE 資訊</p>
+    </section>
+
+    <footer>
+        © 2026 富致康醫療器材 All Rights Reserved.
+    </footer>
 
 </body>
 </html>
