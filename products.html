@@ -2,13 +2,20 @@
 <html lang="zh-TW">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>產品專區｜富致康醫療器材</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-    <meta name="description"
-          content="富致康醫療器材產品專區，提供輪椅、行動輔具、照護輔具、醫療用品及各式輔具維修服務。">
+    <title>
+        產品專區｜富致康醫療器材
+    </title>
+
+    <meta
+        name="description"
+        content="富致康醫療器材產品專區，提供輪椅、行動輔具、照護輔具、醫療用品及各式醫療輔具產品。">
 
     <style>
 
@@ -23,6 +30,7 @@
         }
 
         body {
+
             font-family:
                 "Microsoft JhengHei",
                 "Noto Sans TC",
@@ -30,12 +38,23 @@
                 sans-serif;
 
             background: #f6f9fb;
+
             color: #333;
+
             line-height: 1.7;
+        }
+
+        body.modal-open {
+            overflow: hidden;
         }
 
         a {
             text-decoration: none;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
         }
 
 
@@ -44,26 +63,35 @@
         ========================= */
 
         header {
+
             min-height: 82px;
+
             padding: 12px 7%;
 
             display: flex;
+
             justify-content: space-between;
             align-items: center;
 
             position: sticky;
+
             top: 0;
+
             z-index: 1000;
 
-            background: rgba(255,255,255,0.97);
+            background:
+                rgba(255,255,255,0.97);
 
             box-shadow:
                 0 3px 18px rgba(0,0,0,0.06);
         }
 
+
         .logo {
+
             display: flex;
             align-items: center;
+
             gap: 14px;
 
             color: #0797d3;
@@ -72,38 +100,51 @@
             font-weight: 800;
         }
 
+
         .logo img {
+
             height: 54px;
+
             width: auto;
         }
 
+
         nav {
+
             display: flex;
+
             align-items: center;
-            gap: 25px;
         }
 
-        nav a {
-            color: #333;
-
-            font-size: 15px;
-            font-weight: 600;
-
-            transition: 0.25s;
-        }
-
-        nav a:hover {
-            color: #0797d3;
-        }
 
         .home-button {
-            padding: 9px 18px;
 
-            color: white !important;
-            background: #0797d3;
+            padding:
+                11px 22px;
 
-            border-radius: 7px;
+            color: white;
+
+            background:
+                #0797d3;
+
+            border-radius: 9px;
+
+            font-weight: 700;
+
+            transition:
+                0.25s;
         }
+
+
+        .home-button:hover {
+
+            background:
+                #087ead;
+
+            transform:
+                translateY(-2px);
+        }
+
 
 
         /* =========================
@@ -111,7 +152,9 @@
         ========================= */
 
         .page-hero {
-            padding: 82px 8% 76px;
+
+            padding:
+                82px 8% 76px;
 
             text-align: center;
 
@@ -125,23 +168,36 @@
                 );
         }
 
+
         .page-hero span {
+
             font-size: 13px;
+
             letter-spacing: 3px;
+
             opacity: 0.8;
         }
 
+
         .page-hero h1 {
-            margin: 8px 0 10px;
+
+            margin:
+                8px 0 10px;
+
             font-size: 44px;
         }
 
+
         .page-hero p {
-            max-width: 700px;
+
+            max-width: 720px;
+
             margin: auto;
 
-            color: rgba(255,255,255,0.87);
+            color:
+                rgba(255,255,255,0.87);
         }
+
 
 
         /* =========================
@@ -149,42 +205,63 @@
         ========================= */
 
         .category-section {
-            padding: 55px 8% 25px;
+
+            padding:
+                55px 8% 25px;
         }
 
+
         .category-buttons {
+
             max-width: 1100px;
+
             margin: auto;
 
             display: flex;
+
             justify-content: center;
+
             gap: 10px;
+
             flex-wrap: wrap;
         }
 
+
         .category-button {
-            padding: 10px 20px;
+
+            padding:
+                10px 20px;
 
             color: #555;
+
             background: white;
 
-            border: 1px solid #d7e2e7;
+            border:
+                1px solid #d7e2e7;
+
             border-radius: 30px;
 
             cursor: pointer;
 
-            font-family: inherit;
             font-size: 15px;
 
-            transition: 0.25s;
+            transition:
+                0.25s;
         }
+
 
         .category-button:hover,
         .category-button.active {
+
             color: white;
-            background: #0797d3;
-            border-color: #0797d3;
+
+            background:
+                #0797d3;
+
+            border-color:
+                #0797d3;
         }
+
 
 
         /* =========================
@@ -192,31 +269,45 @@
         ========================= */
 
         .products-section {
-            padding: 30px 8% 100px;
+
+            padding:
+                30px 8% 100px;
         }
 
+
         .products-container {
+
             max-width: 1250px;
+
             margin: auto;
         }
 
+
         .products-heading {
+
             margin-bottom: 30px;
         }
 
+
         .products-heading h2 {
+
             margin-bottom: 4px;
 
-            color: #164c65;
+            color:
+                #164c65;
 
             font-size: 32px;
         }
 
+
         .products-heading p {
+
             color: #777;
         }
 
+
         .product-grid {
+
             display: grid;
 
             grid-template-columns:
@@ -225,226 +316,795 @@
             gap: 25px;
         }
 
+
         .product-card {
+
             overflow: hidden;
 
             display: flex;
+
             flex-direction: column;
 
             background: white;
 
-            border: 1px solid #e1e9ed;
-            border-radius: 17px;
+            border:
+                1px solid #e1e9ed;
+
+            border-radius: 18px;
 
             box-shadow:
-                0 4px 16px rgba(0,0,0,0.035);
+                0 4px 16px
+                rgba(0,0,0,0.035);
 
-            transition: 0.3s;
+            transition:
+                0.3s;
         }
+
 
         .product-card:hover {
-            transform: translateY(-7px);
+
+            transform:
+                translateY(-7px);
 
             box-shadow:
-                0 16px 36px rgba(0,0,0,0.09);
+                0 16px 36px
+                rgba(0,0,0,0.09);
         }
 
+
         .product-image {
-            height: 380px;
-            padding: 25px;
+
+            height: 360px;
+
+            padding: 26px;
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
             position: relative;
 
-            background: #f8fafb;
+            background:
+                #f8fafb;
         }
+
 
         .product-image img {
+
             width: 100%;
+
             height: 100%;
 
             object-fit: contain;
         }
 
-        .second-image {
+
+        .no-image {
+
+            color:
+                #9aa9b0;
+
+            text-align: center;
+        }
+
+
+        .featured-badge {
+
             position: absolute;
 
-            left: 0;
-            top: 0;
+            left: 18px;
+            top: 18px;
 
-            width: 100%;
-            height: 100%;
+            padding:
+                6px 12px;
 
-            padding: 25px;
+            color: white;
 
-            object-fit: contain;
+            background:
+                #f39c12;
 
-            opacity: 0;
+            border-radius:
+                20px;
 
-            background: #f8fafb;
+            font-size: 12px;
 
-            transition: 0.35s;
+            font-weight: 700;
         }
 
-        .product-card:hover .second-image {
-            opacity: 1;
-        }
 
         .product-content {
+
             padding: 24px;
 
             display: flex;
+
             flex-direction: column;
 
             flex: 1;
         }
 
+
         .product-type {
-            align-self: flex-start;
 
-            display: inline-block;
+            align-self:
+                flex-start;
 
-            padding: 5px 12px;
-            margin-bottom: 8px;
+            display:
+                inline-block;
 
-            color: #0797d3;
-            background: #e8f7fc;
+            padding:
+                5px 12px;
 
-            border-radius: 20px;
+            margin-bottom:
+                8px;
 
-            font-size: 12px;
-            font-weight: 800;
+            color:
+                #0797d3;
+
+            background:
+                #e8f7fc;
+
+            border-radius:
+                20px;
+
+            font-size:
+                12px;
+
+            font-weight:
+                800;
         }
+
 
         .product-content h3 {
-            margin-bottom: 9px;
 
-            color: #222;
+            margin-bottom:
+                10px;
 
-            font-size: 24px;
+            color:
+                #222;
+
+            font-size:
+                23px;
         }
+
 
         .product-intro {
-            min-height: 72px;
 
-            color: #707070;
+            min-height:
+                72px;
 
-            font-size: 14px;
+            color:
+                #707070;
+
+            font-size:
+                14px;
         }
 
-        .product-features {
-            margin: 17px 0;
-            padding-top: 13px;
 
-            list-style: none;
+        .quick-specs {
 
-            border-top: 1px solid #eee;
+            margin-top:
+                18px;
+
+            padding-top:
+                15px;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                8px 12px;
+
+            border-top:
+                1px solid #eee;
         }
 
-        .product-features li {
-            position: relative;
 
-            margin: 7px 0;
-            padding-left: 22px;
+        .quick-spec {
 
-            color: #555;
+            font-size:
+                13px;
 
-            font-size: 14px;
+            color:
+                #666;
         }
 
-        .product-features li::before {
-            content: "✓";
 
-            position: absolute;
-            left: 0;
+        .quick-spec strong {
 
-            color: #0797d3;
+            display:
+                block;
 
-            font-weight: bold;
+            color:
+                #164c65;
+
+            font-size:
+                12px;
         }
+
 
         .subsidy {
-            margin-top: auto;
-            margin-bottom: 18px;
 
-            padding: 11px 13px;
+            margin-top:
+                18px;
 
-            color: #176182;
-            background: #f0f8fb;
+            padding:
+                11px 13px;
 
-            border-radius: 7px;
+            color:
+                #176182;
 
-            font-size: 13px;
-            font-weight: 700;
+            background:
+                #f0f8fb;
+
+            border-radius:
+                7px;
+
+            font-size:
+                13px;
+
+            font-weight:
+                700;
         }
 
-        .ask-button {
-            display: block;
+
+        .card-buttons {
+
+            margin-top:
+                auto;
+
+            padding-top:
+                20px;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                1fr;
+
+            gap:
+                10px;
+        }
+
+
+        .detail-button {
 
             width: 100%;
 
-            padding: 11px;
+            padding:
+                12px;
 
             color: white;
-            background: #0797d3;
 
-            border-radius: 7px;
+            background:
+                #0797d3;
 
-            text-align: center;
+            border: 0;
 
-            font-weight: 700;
+            border-radius:
+                8px;
 
-            transition: 0.25s;
+            font-weight:
+                700;
+
+            transition:
+                0.25s;
         }
 
-        .ask-button:hover {
-            background: #087ead;
+
+        .detail-button:hover {
+
+            background:
+                #087ead;
+        }
+
+
+        .contact-button {
+
+            display:
+                block;
+
+            padding:
+                11px;
+
+            color:
+                #176182;
+
+            background:
+                white;
+
+            border:
+                1px solid #cfe1e8;
+
+            border-radius:
+                8px;
+
+            text-align:
+                center;
+
+            font-weight:
+                700;
         }
 
 
         /* =========================
-           尚未新增產品的分類
+           LOADING
         ========================= */
 
-        .coming-card {
-            min-height: 300px;
+        .loading-box {
 
-            padding: 45px;
+            grid-column:
+                1 / -1;
 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            padding:
+                80px 20px;
 
-            text-align: center;
+            background:
+                white;
 
-            background: white;
+            border-radius:
+                16px;
 
-            border: 1px solid #e1e9ed;
-            border-radius: 17px;
+            text-align:
+                center;
 
-            box-shadow:
-                0 4px 16px rgba(0,0,0,0.035);
+            color:
+                #75848b;
         }
 
-        .coming-card h3 {
-            margin-bottom: 10px;
 
-            color: #164c65;
 
-            font-size: 22px;
+        /* =========================
+           MODAL
+        ========================= */
+
+        .modal {
+
+            position:
+                fixed;
+
+            inset:
+                0;
+
+            z-index:
+                3000;
+
+            display:
+                none;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            padding:
+                30px;
+
+            background:
+                rgba(0,0,0,0.55);
         }
 
-        .coming-card p {
-            max-width: 280px;
 
-            color: #888;
+        .modal.show {
 
-            font-size: 14px;
+            display:
+                flex;
         }
+
+
+        .modal-dialog {
+
+            width:
+                min(1150px, 100%);
+
+            max-height:
+                92vh;
+
+            overflow-y:
+                auto;
+
+            background:
+                white;
+
+            border-radius:
+                20px;
+
+            position:
+                relative;
+        }
+
+
+        .modal-close {
+
+            position:
+                sticky;
+
+            float:
+                right;
+
+            right:
+                20px;
+
+            top:
+                20px;
+
+            margin:
+                18px 18px 0 0;
+
+            width:
+                42px;
+
+            height:
+                42px;
+
+            border:
+                0;
+
+            border-radius:
+                50%;
+
+            color:
+                #444;
+
+            background:
+                #f1f4f5;
+
+            font-size:
+                23px;
+
+            z-index:
+                20;
+        }
+
+
+        .modal-inner {
+
+            padding:
+                45px;
+        }
+
+
+        .modal-top {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap:
+                45px;
+        }
+
+
+        .main-photo {
+
+            height:
+                480px;
+
+            padding:
+                25px;
+
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            align-items:
+                center;
+
+            background:
+                #f7f9fa;
+
+            border-radius:
+                15px;
+        }
+
+
+        .main-photo img {
+
+            width:
+                100%;
+
+            height:
+                100%;
+
+            object-fit:
+                contain;
+        }
+
+
+        .thumbnail-list {
+
+            margin-top:
+                12px;
+
+            display:
+                flex;
+
+            gap:
+                10px;
+
+            flex-wrap:
+                wrap;
+        }
+
+
+        .thumbnail {
+
+            width:
+                75px;
+
+            height:
+                75px;
+
+            padding:
+                5px;
+
+            border:
+                1px solid #dae3e7;
+
+            border-radius:
+                8px;
+
+            background:
+                white;
+        }
+
+
+        .thumbnail.active {
+
+            border:
+                2px solid #0797d3;
+        }
+
+
+        .thumbnail img {
+
+            width:
+                100%;
+
+            height:
+                100%;
+
+            object-fit:
+                contain;
+        }
+
+
+        .modal-info {
+
+            padding-top:
+                15px;
+        }
+
+
+        .modal-category {
+
+            display:
+                inline-block;
+
+            padding:
+                5px 12px;
+
+            color:
+                #0797d3;
+
+            background:
+                #e8f7fc;
+
+            border-radius:
+                20px;
+
+            font-size:
+                12px;
+
+            font-weight:
+                800;
+        }
+
+
+        .modal-info h2 {
+
+            margin:
+                12px 0 15px;
+
+            color:
+                #164c65;
+
+            font-size:
+                34px;
+        }
+
+
+        .modal-description {
+
+            color:
+                #666;
+        }
+
+
+        .modal-subsidy {
+
+            margin-top:
+                20px;
+
+            padding:
+                14px;
+
+            color:
+                #176182;
+
+            background:
+                #edf8fc;
+
+            border-radius:
+                9px;
+
+            font-weight:
+                700;
+        }
+
+
+        .modal-contact {
+
+            display:
+                inline-block;
+
+            margin-top:
+                22px;
+
+            padding:
+                12px 24px;
+
+            color:
+                white;
+
+            background:
+                #0797d3;
+
+            border-radius:
+                8px;
+
+            font-weight:
+                700;
+        }
+
+
+
+        /* =========================
+           DETAILS
+        ========================= */
+
+        .detail-section {
+
+            margin-top:
+                45px;
+
+            padding-top:
+                35px;
+
+            border-top:
+                1px solid #e5eaed;
+        }
+
+
+        .detail-section h3 {
+
+            margin-bottom:
+                20px;
+
+            color:
+                #164c65;
+
+            font-size:
+                25px;
+        }
+
+
+        .feature-list {
+
+            list-style:
+                none;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                11px 25px;
+        }
+
+
+        .feature-list li {
+
+            position:
+                relative;
+
+            padding-left:
+                24px;
+
+            color:
+                #555;
+        }
+
+
+        .feature-list li::before {
+
+            content:
+                "✓";
+
+            position:
+                absolute;
+
+            left:
+                0;
+
+            color:
+                #0797d3;
+
+            font-weight:
+                900;
+        }
+
+
+        .spec-table {
+
+            width:
+                100%;
+
+            border-collapse:
+                collapse;
+
+            overflow:
+                hidden;
+
+            border-radius:
+                10px;
+        }
+
+
+        .spec-table tr:nth-child(odd) {
+
+            background:
+                #f6f9fa;
+        }
+
+
+        .spec-table th,
+        .spec-table td {
+
+            padding:
+                14px 17px;
+
+            border-bottom:
+                1px solid #e8edef;
+
+            text-align:
+                left;
+        }
+
+
+        .spec-table th {
+
+            width:
+                35%;
+
+            color:
+                #164c65;
+
+            font-weight:
+                700;
+        }
+
 
 
         /* =========================
@@ -452,43 +1112,75 @@
         ========================= */
 
         .help-section {
-            padding: 65px 8%;
 
-            color: white;
-            background: #143f53;
+            padding:
+                65px 8%;
 
-            text-align: center;
+            color:
+                white;
+
+            background:
+                #143f53;
+
+            text-align:
+                center;
         }
+
 
         .help-section h2 {
-            margin-bottom: 8px;
-            font-size: 30px;
+
+            margin-bottom:
+                8px;
+
+            font-size:
+                30px;
         }
+
 
         .help-section p {
-            margin-bottom: 22px;
 
-            color: rgba(255,255,255,0.8);
+            margin-bottom:
+                22px;
+
+            color:
+                rgba(255,255,255,0.8);
         }
+
 
         .help-buttons {
-            display: flex;
-            justify-content: center;
 
-            gap: 12px;
-            flex-wrap: wrap;
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            gap:
+                12px;
+
+            flex-wrap:
+                wrap;
         }
+
 
         .help-buttons a {
-            padding: 11px 21px;
 
-            color: #087ead;
-            background: white;
+            padding:
+                11px 21px;
 
-            border-radius: 6px;
+            color:
+                #087ead;
 
-            font-weight: 700;
+            background:
+                white;
+
+            border-radius:
+                6px;
+
+            font-weight:
+                700;
         }
+
 
 
         /* =========================
@@ -496,83 +1188,151 @@
         ========================= */
 
         footer {
-            padding: 28px;
 
-            color: rgba(255,255,255,0.78);
-            background: #0e3040;
+            padding:
+                28px;
 
-            text-align: center;
+            color:
+                rgba(255,255,255,0.78);
 
-            font-size: 14px;
+            background:
+                #0e3040;
+
+            text-align:
+                center;
+
+            font-size:
+                14px;
         }
 
-        .product-item {
-            display: flex;
-        }
-
-        .product-item.hidden {
-            display: none;
-        }
 
 
         /* =========================
            RWD
         ========================= */
 
-        @media (max-width: 1000px) {
+        @media
+        (max-width: 1000px) {
 
             .product-grid {
+
                 grid-template-columns:
                     repeat(2, 1fr);
             }
 
+
+            .modal-top {
+
+                grid-template-columns:
+                    1fr;
+            }
+
         }
 
-        @media (max-width: 750px) {
+
+        @media
+        (max-width: 750px) {
 
             header {
-                flex-direction: column;
-                gap: 12px;
+
+                flex-direction:
+                    column;
+
+                gap:
+                    12px;
             }
 
-            nav {
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 14px;
-            }
 
             .page-hero h1 {
-                font-size: 36px;
+
+                font-size:
+                    36px;
+            }
+
+
+            .modal {
+
+                padding:
+                    12px;
+            }
+
+
+            .modal-inner {
+
+                padding:
+                    28px 20px 35px;
+            }
+
+
+            .main-photo {
+
+                height:
+                    360px;
+            }
+
+
+            .feature-list {
+
+                grid-template-columns:
+                    1fr;
             }
 
         }
 
-        @media (max-width: 600px) {
+
+        @media
+        (max-width: 600px) {
 
             .logo {
-                font-size: 19px;
+
+                font-size:
+                    19px;
             }
+
 
             .logo img {
-                height: 44px;
+
+                height:
+                    44px;
             }
+
 
             .product-grid {
-                grid-template-columns: 1fr;
+
+                grid-template-columns:
+                    1fr;
             }
+
 
             .product-image {
-                height: 350px;
+
+                height:
+                    330px;
             }
 
+
             .page-hero {
-                padding: 60px 6%;
+
+                padding:
+                    60px 6%;
             }
+
 
             .category-section,
             .products-section {
-                padding-left: 6%;
-                padding-right: 6%;
+
+                padding-left:
+                    6%;
+
+                padding-right:
+                    6%;
+            }
+
+
+            .modal-info h2 {
+
+                font-size:
+                    28px;
             }
 
         }
@@ -591,7 +1351,9 @@
 
 <header>
 
-    <a href="index.html" class="logo">
+    <a
+        href="index.html"
+        class="logo">
 
         <img
             src="images/fzk.png"
@@ -605,12 +1367,19 @@
 
 
     <nav>
-        <a href="index.html" class="home-button">
+
+        <a
+            href="index.html"
+            class="home-button">
+
             回到首頁
+
         </a>
+
     </nav>
 
 </header>
+
 
 
 <!-- =========================
@@ -628,11 +1397,12 @@
     </h1>
 
     <p>
-        提供各式醫療器材、輪椅、行動輔具、
-        醫療用品及相關輔具產品。
+        提供各式輪椅、行動輔具、
+        醫療器材與相關輔具用品。
     </p>
 
 </section>
+
 
 
 <!-- =========================
@@ -646,42 +1416,51 @@
         <button
             class="category-button active"
             data-category="all">
+
             全部產品
+
         </button>
+
 
         <button
             class="category-button"
             data-category="wheelchair">
+
             輪椅系列
+
         </button>
+
 
         <button
             class="category-button"
             data-category="mobility">
+
             行動輔具
+
         </button>
+
 
         <button
             class="category-button"
             data-category="assistive">
+
             照護輔具
+
         </button>
+
 
         <button
             class="category-button"
             data-category="medical">
-            醫療用品
-        </button>
 
-        <button
-            class="category-button"
-            data-category="repair">
-            輔具維修
+            醫療用品
+
         </button>
 
     </div>
 
 </section>
+
 
 
 <!-- =========================
@@ -694,586 +1473,64 @@
 
         <div class="products-heading">
 
-            <h2 id="category-title">
+            <h2 id="categoryTitle">
                 全部產品
             </h2>
 
-            <p id="category-description">
+            <p id="categoryDescription">
                 富致康醫療器材產品一覽
             </p>
 
         </div>
 
 
-        <div class="product-grid">
+        <div
+            id="productGrid"
+            class="product-grid">
 
+            <div class="loading-box">
 
-            <!-- FZK-AB -->
-
-            <div
-                class="product-card product-item"
-                data-category="wheelchair">
-
-                <div class="product-image">
-
-                    <img
-                        src="images/fzk-ab-blue.png"
-                        alt="FZK-AB 躺舒芙">
-
-                    <img
-                        class="second-image"
-                        src="images/fzk-ab-blue-recline.png"
-                        alt="FZK-AB 躺舒芙仰躺狀態">
-
-                </div>
-
-
-                <div class="product-content">
-
-                    <span class="product-type">
-                        輪椅系列
-                    </span>
-
-                    <h3>
-                        FZK-AB 躺舒芙
-                    </h3>
-
-                    <p class="product-intro">
-                        鋁合金多功能仰躺式輪椅，
-                        採無段氣壓式仰躺設計，
-                        可依需求調整坐姿角度。
-                    </p>
-
-                    <ul class="product-features">
-
-                        <li>鋁合金材質</li>
-
-                        <li>
-                            附頭靠組、防傾桿、胸帶、安全帶
-                        </li>
-
-                        <li>
-                            扶手可掀、可拆、可調整高度
-                        </li>
-
-                        <li>
-                            可拆卸骨科腳靠、可調高度
-                        </li>
-
-                        <li>
-                            無段氣壓式仰躺 0–170°
-                        </li>
-
-                        <li>
-                            收合體積小，方便收納
-                        </li>
-
-                    </ul>
-
-                    <div class="subsidy">
-                        符合補助項目：
-                        輪椅-B款・附加A・附加B
-                    </div>
-
-                    <a href="index.html#contact"
-                       class="ask-button">
-                        洽詢此產品
-                    </a>
-
-                </div>
+                商品載入中...
 
             </div>
-
-
-            <!-- FZK-AC -->
-
-            <div
-                class="product-card product-item"
-                data-category="wheelchair">
-
-                <div class="product-image">
-
-                    <img
-                        src="images/fzk-ac-red.png"
-                        alt="FZK-AC 傾舒芙">
-
-                    <img
-                        class="second-image"
-                        src="images/fzk-ac-red-tilt.png"
-                        alt="FZK-AC 傾舒芙後傾狀態">
-
-                </div>
-
-
-                <div class="product-content">
-
-                    <span class="product-type">
-                        輪椅系列
-                    </span>
-
-                    <h3>
-                        FZK-AC 傾舒芙
-                    </h3>
-
-                    <p class="product-intro">
-                        鋁合金氣壓式後傾輪椅，
-                        支援無段空中傾倒，
-                        可依使用需求調整後傾角度。
-                    </p>
-
-                    <ul class="product-features">
-
-                        <li>鋁合金材質</li>
-
-                        <li>
-                            附頭靠組、防傾桿、胸帶、安全帶
-                        </li>
-
-                        <li>
-                            扶手可掀、可拆、可調整高度
-                        </li>
-
-                        <li>
-                            氣壓式無段後傾
-                        </li>
-
-                        <li>
-                            空中傾倒 0–35°
-                        </li>
-
-                        <li>
-                            收合體積小，方便收納
-                        </li>
-
-                    </ul>
-
-                    <div class="subsidy">
-                        符合補助項目：
-                        輪椅-B款・附加A・附加C
-                    </div>
-
-                    <a href="index.html#contact"
-                       class="ask-button">
-                        洽詢此產品
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- K4 -->
-
-            <div
-                class="product-card product-item"
-                data-category="wheelchair">
-
-                <div class="product-image">
-
-                    <img
-                        src="images/fzk-k4.png"
-                        alt="K4 拆手拆腳系列">
-
-                </div>
-
-                <div class="product-content">
-
-                    <span class="product-type">
-                        輪椅系列
-                    </span>
-
-                    <h3>
-                        K4 拆手拆腳系列
-                    </h3>
-
-                    <p class="product-intro">
-                        輕量化鋁合金輪椅，
-                        扶手及腳踏皆可拆卸，
-                        並提供多種後輪尺寸選擇。
-                    </p>
-
-                    <ul class="product-features">
-
-                        <li>
-                            輕量化鋁合金材質
-                        </li>
-
-                        <li>
-                            扶手可掀、可拆
-                        </li>
-
-                        <li>
-                            腳踏可拆
-                        </li>
-
-                        <li>
-                            雙層坐墊布
-                        </li>
-
-                        <li>
-                            後輪可選 16 吋、20 吋、24 吋
-                        </li>
-
-                    </ul>
-
-                    <div class="subsidy">
-                        符合補助項目：
-                        輪椅-B款・附加A
-                    </div>
-
-                    <a href="index.html#contact"
-                       class="ask-button">
-                        洽詢此產品
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- FZK-151 -->
-
-            <div
-                class="product-card product-item"
-                data-category="wheelchair">
-
-                <div class="product-image">
-
-                    <img
-                        src="images/fzk-151.png"
-                        alt="FZK-151 安舒大輪">
-
-                </div>
-
-                <div class="product-content">
-
-                    <span class="product-type">
-                        安舒系列
-                    </span>
-
-                    <h3>
-                        FZK-151 安舒大輪
-                    </h3>
-
-                    <p class="product-intro">
-                        安舒系列 22 吋大輪款，
-                        採輕量化鋁合金車架，
-                        搭配加寬扶手與雙層坐背墊。
-                    </p>
-
-                    <ul class="product-features">
-
-                        <li>輕量化鋁合金材質</li>
-                        <li>流線型扶手設計</li>
-                        <li>加寬 PU 扶手</li>
-                        <li>二段式固定煞車</li>
-                        <li>加窩靠背</li>
-                        <li>雙層坐背墊</li>
-                        <li>外翻式腳踏</li>
-                        <li>附安全帶</li>
-                        <li>22 吋後大輪</li>
-
-                    </ul>
-
-                    <div class="subsidy">
-                        22 吋後大輪款
-                    </div>
-
-                    <a href="index.html#contact"
-                       class="ask-button">
-                        洽詢此產品
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- FZK-251 -->
-
-            <div
-                class="product-card product-item"
-                data-category="wheelchair">
-
-                <div class="product-image">
-
-                    <img
-                        src="images/fzk-251.png"
-                        alt="FZK-251 安舒中輪">
-
-                </div>
-
-                <div class="product-content">
-
-                    <span class="product-type">
-                        安舒系列
-                    </span>
-
-                    <h3>
-                        FZK-251 安舒中輪
-                    </h3>
-
-                    <p class="product-intro">
-                        安舒系列 20 吋中輪款，
-                        採輕量化鋁合金車架，
-                        搭配加高靠背與雙層坐背墊。
-                    </p>
-
-                    <ul class="product-features">
-
-                        <li>輕量化鋁合金材質</li>
-                        <li>流線型扶手設計</li>
-                        <li>加寬 PU 扶手</li>
-                        <li>二段式固定煞車</li>
-                        <li>加高靠背</li>
-                        <li>雙層坐背墊</li>
-                        <li>外翻式腳踏</li>
-                        <li>附安全帶</li>
-                        <li>20 吋後輪</li>
-
-                    </ul>
-
-                    <div class="subsidy">
-                        20 吋後輪款
-                    </div>
-
-                    <a href="index.html#contact"
-                       class="ask-button">
-                        洽詢此產品
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- FZK-351 -->
-
-            <div
-                class="product-card product-item"
-                data-category="wheelchair">
-
-                <div class="product-image">
-
-                    <img
-                        src="images/fzk-351.png"
-                        alt="FZK-351 安舒小輪">
-
-                </div>
-
-                <div class="product-content">
-
-                    <span class="product-type">
-                        安舒系列
-                    </span>
-
-                    <h3>
-                        FZK-351 安舒小輪
-                    </h3>
-
-                    <p class="product-intro">
-                        安舒系列 16 吋小輪款，
-                        採輕量化鋁合金車架，
-                        搭配加高靠背與雙層坐背墊。
-                    </p>
-
-                    <ul class="product-features">
-
-                        <li>輕量化鋁合金材質</li>
-                        <li>流線型扶手設計</li>
-                        <li>加寬 PU 扶手</li>
-                        <li>二段式固定煞車</li>
-                        <li>加高靠背</li>
-                        <li>雙層坐背墊</li>
-                        <li>外翻式腳踏</li>
-                        <li>附安全帶</li>
-                        <li>16 吋後輪</li>
-
-                    </ul>
-
-                    <div class="subsidy">
-                        16 吋後輪款
-                    </div>
-
-                    <a href="index.html#contact"
-                       class="ask-button">
-                        洽詢此產品
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- FZK-1500 -->
-
-            <div
-                class="product-card product-item"
-                data-category="wheelchair">
-
-                <div class="product-image">
-
-                    <img
-                        src="images/fzk-1500.png"
-                        alt="FZK-1500 弧形大輪">
-
-                </div>
-
-                <div class="product-content">
-
-                    <span class="product-type">
-                        輪椅系列
-                    </span>
-
-                    <h3>
-                        FZK-1500 弧形大輪
-                    </h3>
-
-                    <p class="product-intro">
-                        輕量化鋁合金大輪輪椅，
-                        搭配旋轉式可調踏板與
-                        24 吋後大輪。
-                    </p>
-
-                    <ul class="product-features">
-
-                        <li>
-                            輕量化鋁合金材質
-                        </li>
-
-                        <li>
-                            旋轉式踏板
-                        </li>
-
-                        <li>
-                            踏板高度可調整
-                        </li>
-
-                        <li>
-                            附小腿腳帶
-                        </li>
-
-                        <li>
-                            防止小腿掉落設計
-                        </li>
-
-                        <li>
-                            雙層網布坐背墊
-                        </li>
-
-                        <li>
-                            坐背墊可拆換洗
-                        </li>
-
-                        <li>
-                            附安全帶
-                        </li>
-
-                        <li>
-                            24 吋後大輪
-                        </li>
-
-                    </ul>
-
-                    <div class="subsidy">
-                        24 吋後大輪款
-                    </div>
-
-                    <a href="index.html#contact"
-                       class="ask-button">
-                        洽詢此產品
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- =========================
-                 行動輔具
-            ========================== -->
-
-            <div
-                class="coming-card product-item"
-                data-category="mobility">
-
-                <h3>
-                    行動輔具
-                </h3>
-
-                <p>
-                    四輪椅、助行器、柺杖等產品
-                    將陸續新增。
-                </p>
-
-            </div>
-
-
-            <!-- =========================
-                 照護輔具
-            ========================== -->
-
-            <div
-                class="coming-card product-item"
-                data-category="assistive">
-
-                <h3>
-                    照護輔具
-                </h3>
-
-                <p>
-                    馬桶椅、氣墊床等輔具產品
-                    將陸續新增。
-                </p>
-
-            </div>
-
-
-            <!-- =========================
-                 醫療用品
-            ========================== -->
-
-            <div
-                class="coming-card product-item"
-                data-category="medical">
-
-                <h3>
-                    醫療用品
-                </h3>
-
-                <p>
-                    醫療配件、耗材與保健相關產品
-                    將陸續新增。
-                </p>
-
-            </div>
-
-
-            <!-- =========================
-                 輔具維修
-            ========================== -->
-
-            <div
-                class="coming-card product-item"
-                data-category="repair">
-
-                <h3>
-                    輔具維修
-                </h3>
-
-                <p>
-                    提供各式輔具檢查、零件更換與維修服務，
-                    歡迎來電洽詢。
-                </p>
-
-            </div>
-
 
         </div>
 
     </div>
 
 </section>
+
+
+
+<!-- =========================
+     PRODUCT DETAIL MODAL
+========================= -->
+
+<div
+    id="productModal"
+    class="modal">
+
+    <div class="modal-dialog">
+
+        <button
+            id="modalClose"
+            class="modal-close">
+
+            ×
+
+        </button>
+
+
+        <div
+            id="modalContent"
+            class="modal-inner">
+
+        </div>
+
+    </div>
+
+</div>
+
 
 
 <!-- =========================
@@ -1288,26 +1545,36 @@
 
     <p>
         歡迎聯絡富致康，
-        依照您的使用需求洽詢適合的產品。
+        依照您的使用需求洽詢合適的產品。
     </p>
+
 
     <div class="help-buttons">
 
         <a href="tel:034393948">
+
             電話 03-439-3948
+
         </a>
+
 
         <a href="mailto:fuzikon.co@gmail.com">
+
             Email 洽詢
+
         </a>
 
+
         <a href="index.html#contact">
+
             門市與聯絡資訊
+
         </a>
 
     </div>
 
 </section>
+
 
 
 <footer>
@@ -1319,138 +1586,171 @@
 </footer>
 
 
-<!-- =========================
-     CATEGORY FILTER
-========================= -->
+
+<script
+src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
+</script>
+
+
 
 <script>
 
-    const buttons =
-        document.querySelectorAll(
-            ".category-button"
-        );
 
-    const products =
-        document.querySelectorAll(
-            ".product-item"
-        );
-
-    const title =
-        document.getElementById(
-            "category-title"
-        );
-
-    const description =
-        document.getElementById(
-            "category-description"
-        );
+/* =========================================
+   SUPABASE
+========================================= */
 
 
-    const categoryText = {
-
-        all: [
-            "全部產品",
-            "富致康醫療器材產品一覽"
-        ],
-
-        wheelchair: [
-            "輪椅系列",
-            "各式輪椅與特殊功能輪椅"
-        ],
-
-        mobility: [
-            "行動輔具",
-            "四輪椅、助行器與柺杖等產品"
-        ],
-
-        assistive: [
-            "照護輔具",
-            "馬桶椅、氣墊床等輔具產品"
-        ],
-
-        medical: [
-            "醫療用品",
-            "醫療配件、耗材與保健相關產品"
-        ],
-
-        repair: [
-            "輔具維修",
-            "各式輔具檢查與維修服務"
-        ]
-
-    };
+const SUPABASE_URL =
+    "https://sdkgiedglmhmchiietru.supabase.co";
 
 
-    function filterProducts(category) {
+const SUPABASE_KEY =
+    "sb_publishable_ofwe1YigppMHJjcWu_VjUA_XF7wNzEm";
 
-        buttons.forEach(button => {
 
-            button.classList.remove(
-                "active"
-            );
+const db =
+    supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
 
-            if (
-                button.dataset.category === category
-            ) {
 
-                button.classList.add(
-                    "active"
-                );
 
+/* =========================================
+   VARIABLES
+========================================= */
+
+
+const productGrid =
+    document.getElementById(
+        "productGrid"
+    );
+
+
+const modal =
+    document.getElementById(
+        "productModal"
+    );
+
+
+const modalContent =
+    document.getElementById(
+        "modalContent"
+    );
+
+
+let allProducts = [];
+
+
+/* =========================================
+   CATEGORY TEXT
+========================================= */
+
+
+const categoryText = {
+
+    all: [
+        "全部產品",
+        "富致康醫療器材產品一覽"
+    ],
+
+    wheelchair: [
+        "輪椅系列",
+        "各式輪椅與特殊功能輪椅"
+    ],
+
+    mobility: [
+        "行動輔具",
+        "四輪椅、助行器與柺杖等產品"
+    ],
+
+    assistive: [
+        "照護輔具",
+        "馬桶椅、氣墊床等輔具產品"
+    ],
+
+    medical: [
+        "醫療用品",
+        "醫療配件、耗材與相關醫療用品"
+    ]
+
+};
+
+
+
+/* =========================================
+   LOAD PRODUCTS
+========================================= */
+
+
+async function loadProducts() {
+
+
+    productGrid.innerHTML = `
+
+        <div class="loading-box">
+
+            商品載入中...
+
+        </div>
+
+    `;
+
+
+    const {
+        data,
+        error
+    } =
+        await db
+
+        .from("products")
+
+        .select("*")
+
+        .eq(
+            "is_active",
+            true
+        )
+
+        .order(
+            "sort_order",
+            {
+                ascending: true
             }
+        )
 
-        });
-
-
-        products.forEach(product => {
-
-            if (
-                category === "all" ||
-                product.dataset.category === category
-            ) {
-
-                product.classList.remove(
-                    "hidden"
-                );
-
-            } else {
-
-                product.classList.add(
-                    "hidden"
-                );
-
+        .order(
+            "created_at",
+            {
+                ascending: false
             }
+        );
 
-        });
+
+    if (error) {
 
 
-        if (categoryText[category]) {
+        productGrid.innerHTML = `
 
-            title.textContent =
-                categoryText[category][0];
+            <div class="loading-box">
 
-            description.textContent =
-                categoryText[category][1];
+                商品讀取失敗<br>
 
-        }
+                ${escapeHTML(error.message)}
+
+            </div>
+
+        `;
+
+
+        return;
 
     }
 
 
-    buttons.forEach(button => {
-
-        button.addEventListener(
-            "click",
-            () => {
-
-                filterProducts(
-                    button.dataset.category
-                );
-
-            }
-        );
-
-    });
+    allProducts =
+        data || [];
 
 
     const params =
@@ -1459,23 +1759,1059 @@
         );
 
 
-    const requestedCategory =
+    const category =
         params.get("category");
 
 
     if (
-        requestedCategory &&
-        categoryText[requestedCategory]
+        category &&
+        categoryText[category]
     ) {
 
         filterProducts(
-            requestedCategory
+            category
+        );
+
+    } else {
+
+        filterProducts(
+            "all"
         );
 
     }
+
+}
+
+
+
+/* =========================================
+   FILTER
+========================================= */
+
+
+function filterProducts(category) {
+
+
+    document
+    .querySelectorAll(
+        ".category-button"
+    )
+    .forEach(
+        button => {
+
+
+            button
+            .classList
+            .toggle(
+
+                "active",
+
+                button.dataset.category
+                === category
+
+            );
+
+
+        }
+    );
+
+
+    document
+    .getElementById(
+        "categoryTitle"
+    )
+    .textContent =
+        categoryText[category][0];
+
+
+    document
+    .getElementById(
+        "categoryDescription"
+    )
+    .textContent =
+        categoryText[category][1];
+
+
+    const filtered =
+
+        category === "all"
+
+        ?
+
+        allProducts
+
+        :
+
+        allProducts.filter(
+            product =>
+                product.category
+                === category
+        );
+
+
+    renderProducts(
+        filtered
+    );
+
+}
+
+
+
+document
+.querySelectorAll(
+    ".category-button"
+)
+.forEach(
+    button => {
+
+
+        button.addEventListener(
+            "click",
+            function () {
+
+
+                filterProducts(
+                    button.dataset.category
+                );
+
+
+                history.replaceState(
+
+                    null,
+
+                    "",
+
+                    button.dataset.category
+                    === "all"
+
+                    ?
+
+                    "products.html"
+
+                    :
+
+                    "products.html?category="
+                    +
+                    button.dataset.category
+
+                );
+
+
+            }
+        );
+
+
+    }
+);
+
+
+
+/* =========================================
+   PRODUCT CARDS
+========================================= */
+
+
+function renderProducts(products) {
+
+
+    productGrid.innerHTML = "";
+
+
+    if (!products.length) {
+
+
+        productGrid.innerHTML = `
+
+            <div class="loading-box">
+
+                此分類目前尚未新增商品
+
+            </div>
+
+        `;
+
+
+        return;
+
+    }
+
+
+    products.forEach(
+        product => {
+
+
+            const card =
+                document.createElement(
+                    "article"
+                );
+
+
+            card.className =
+                "product-card";
+
+
+            const image =
+
+                product.image_urls
+                &&
+                product.image_urls.length
+
+                ?
+
+                product.image_urls[0]
+
+                :
+
+                "";
+
+
+            const quickSpecs =
+                getQuickSpecs(
+                    product.specs || []
+                );
+
+
+            card.innerHTML = `
+
+
+                <div class="product-image">
+
+
+                    ${
+                        product.featured
+
+                        ?
+
+                        `
+
+                        <span class="featured-badge">
+
+                            熱賣商品
+
+                        </span>
+
+                        `
+
+                        :
+
+                        ""
+                    }
+
+
+                    ${
+                        image
+
+                        ?
+
+                        `
+
+                        <img
+                            src="${escapeAttribute(image)}"
+                            alt="${escapeAttribute(product.name)}">
+
+                        `
+
+                        :
+
+                        `
+
+                        <div class="no-image">
+
+                            尚無商品圖片
+
+                        </div>
+
+                        `
+                    }
+
+
+                </div>
+
+
+                <div class="product-content">
+
+
+                    <span class="product-type">
+
+                        ${categoryName(product.category)}
+
+                    </span>
+
+
+                    <h3>
+
+                        ${escapeHTML(product.name)}
+
+                    </h3>
+
+
+                    <p class="product-intro">
+
+                        ${
+                            escapeHTML(
+
+                                product.short_description
+                                ||
+                                product.description
+                                ||
+                                "商品詳細資訊請點擊查看。"
+
+                            )
+                        }
+
+                    </p>
+
+
+                    ${
+                        quickSpecs
+                    }
+
+
+                    ${
+                        product.subsidy
+
+                        ?
+
+                        `
+
+                        <div class="subsidy">
+
+                            補助項目：
+                            ${escapeHTML(product.subsidy)}
+
+                        </div>
+
+                        `
+
+                        :
+
+                        ""
+                    }
+
+
+                    <div class="card-buttons">
+
+
+                        <button
+                            class="detail-button"
+                            data-product-id="${product.id}">
+
+                            查看詳細資料
+
+                        </button>
+
+
+                        <a
+                            href="index.html#contact"
+                            class="contact-button">
+
+                            洽詢此產品
+
+                        </a>
+
+
+                    </div>
+
+
+                </div>
+
+            `;
+
+
+            productGrid
+            .appendChild(
+                card
+            );
+
+
+        }
+    );
+
+
+    document
+    .querySelectorAll(
+        ".detail-button"
+    )
+    .forEach(
+        button => {
+
+
+            button.addEventListener(
+                "click",
+                function () {
+
+
+                    openProduct(
+                        button.dataset.productId
+                    );
+
+
+                }
+            );
+
+
+        }
+    );
+
+}
+
+
+
+/* =========================================
+   QUICK SPECS
+========================================= */
+
+
+function getQuickSpecs(specs) {
+
+
+    const preferred = [
+
+        "座寬",
+        "承重",
+        "淨重",
+        "後輪尺寸"
+
+    ];
+
+
+    const items = [];
+
+
+    preferred.forEach(
+        name => {
+
+
+            const found =
+                specs.find(
+                    spec =>
+                        spec.name === name
+                );
+
+
+            if (found) {
+
+                items.push(
+                    found
+                );
+
+            }
+
+
+        }
+    );
+
+
+    if (!items.length) {
+
+        return "";
+
+    }
+
+
+    return `
+
+        <div class="quick-specs">
+
+            ${
+                items
+                .slice(0,4)
+                .map(
+
+                    spec => `
+
+                    <div class="quick-spec">
+
+                        <strong>
+
+                            ${escapeHTML(spec.name)}
+
+                        </strong>
+
+                        ${escapeHTML(spec.value)}
+
+                    </div>
+
+                    `
+
+                )
+                .join("")
+            }
+
+        </div>
+
+    `;
+
+}
+
+
+
+/* =========================================
+   PRODUCT DETAIL
+========================================= */
+
+
+function openProduct(id) {
+
+
+    const product =
+        allProducts.find(
+            item =>
+                item.id === id
+        );
+
+
+    if (!product) {
+
+        return;
+
+    }
+
+
+    const images =
+        product.image_urls || [];
+
+
+    const firstImage =
+        images.length
+
+        ?
+
+        images[0]
+
+        :
+
+        "";
+
+
+    const features =
+        product.features || [];
+
+
+    const specs =
+        product.specs || [];
+
+
+    modalContent.innerHTML = `
+
+
+        <div class="modal-top">
+
+
+            <div>
+
+
+                <div
+                    class="main-photo"
+                    id="mainPhoto">
+
+
+                    ${
+                        firstImage
+
+                        ?
+
+                        `
+
+                        <img
+                            id="mainPhotoImage"
+                            src="${escapeAttribute(firstImage)}"
+                            alt="${escapeAttribute(product.name)}">
+
+                        `
+
+                        :
+
+                        `
+
+                        <div class="no-image">
+
+                            尚無商品圖片
+
+                        </div>
+
+                        `
+                    }
+
+
+                </div>
+
+
+                ${
+                    images.length > 1
+
+                    ?
+
+                    `
+
+                    <div class="thumbnail-list">
+
+                        ${
+                            images.map(
+
+                                (image,index) => `
+
+                                <button
+                                    class="thumbnail
+                                    ${index === 0 ? "active" : ""}"
+                                    data-image="${escapeAttribute(image)}">
+
+                                    <img
+                                        src="${escapeAttribute(image)}"
+                                        alt="">
+
+                                </button>
+
+                                `
+
+                            ).join("")
+                        }
+
+                    </div>
+
+                    `
+
+                    :
+
+                    ""
+                }
+
+
+            </div>
+
+
+            <div class="modal-info">
+
+
+                <span class="modal-category">
+
+                    ${categoryName(product.category)}
+
+                </span>
+
+
+                <h2>
+
+                    ${escapeHTML(product.name)}
+
+                </h2>
+
+
+                <div class="modal-description">
+
+                    ${
+                        escapeHTML(
+
+                            product.description
+                            ||
+                            product.short_description
+                            ||
+                            ""
+
+                        )
+                    }
+
+                </div>
+
+
+                ${
+                    product.subsidy
+
+                    ?
+
+                    `
+
+                    <div class="modal-subsidy">
+
+                        符合補助項目：
+                        ${escapeHTML(product.subsidy)}
+
+                    </div>
+
+                    `
+
+                    :
+
+                    ""
+                }
+
+
+                <a
+                    href="index.html#contact"
+                    class="modal-contact">
+
+                    洽詢此產品
+
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+
+        ${
+            features.length
+
+            ?
+
+            `
+
+            <section class="detail-section">
+
+                <h3>
+                    商品特色
+                </h3>
+
+
+                <ul class="feature-list">
+
+                    ${
+                        features
+                        .map(
+
+                            feature => `
+
+                            <li>
+
+                                ${escapeHTML(feature)}
+
+                            </li>
+
+                            `
+
+                        )
+                        .join("")
+                    }
+
+                </ul>
+
+            </section>
+
+            `
+
+            :
+
+            ""
+        }
+
+
+        ${
+            specs.length
+
+            ?
+
+            `
+
+            <section class="detail-section">
+
+                <h3>
+                    產品規格
+                </h3>
+
+
+                <table class="spec-table">
+
+                    <tbody>
+
+                        ${
+                            specs
+                            .map(
+
+                                spec => `
+
+                                <tr>
+
+                                    <th>
+
+                                        ${escapeHTML(spec.name)}
+
+                                    </th>
+
+                                    <td>
+
+                                        ${escapeHTML(spec.value)}
+
+                                    </td>
+
+                                </tr>
+
+                                `
+
+                            )
+                            .join("")
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </section>
+
+            `
+
+            :
+
+            ""
+        }
+
+    `;
+
+
+    modal
+    .classList
+    .add(
+        "show"
+    );
+
+
+    document
+    .body
+    .classList
+    .add(
+        "modal-open"
+    );
+
+
+    document
+    .querySelectorAll(
+        ".thumbnail"
+    )
+    .forEach(
+        thumbnail => {
+
+
+            thumbnail.addEventListener(
+                "click",
+                function () {
+
+
+                    document
+                    .querySelectorAll(
+                        ".thumbnail"
+                    )
+                    .forEach(
+                        item =>
+                            item.classList.remove(
+                                "active"
+                            )
+                    );
+
+
+                    thumbnail
+                    .classList
+                    .add(
+                        "active"
+                    );
+
+
+                    const image =
+                        document.getElementById(
+                            "mainPhotoImage"
+                        );
+
+
+                    if (image) {
+
+                        image.src =
+                            thumbnail.dataset.image;
+
+                    }
+
+
+                }
+            );
+
+
+        }
+    );
+
+}
+
+
+
+/* =========================================
+   CLOSE MODAL
+========================================= */
+
+
+function closeModal() {
+
+
+    modal
+    .classList
+    .remove(
+        "show"
+    );
+
+
+    document
+    .body
+    .classList
+    .remove(
+        "modal-open"
+    );
+
+}
+
+
+
+document
+.getElementById(
+    "modalClose"
+)
+.addEventListener(
+    "click",
+    closeModal
+);
+
+
+
+modal
+.addEventListener(
+    "click",
+    function (event) {
+
+
+        if (
+            event.target === modal
+        ) {
+
+            closeModal();
+
+        }
+
+
+    }
+);
+
+
+
+document
+.addEventListener(
+    "keydown",
+    function (event) {
+
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            closeModal();
+
+        }
+
+
+    }
+);
+
+
+
+/* =========================================
+   CATEGORY NAME
+========================================= */
+
+
+function categoryName(category) {
+
+
+    const names = {
+
+        wheelchair:
+            "輪椅系列",
+
+        mobility:
+            "行動輔具",
+
+        assistive:
+            "照護輔具",
+
+        medical:
+            "醫療用品",
+
+        repair:
+            "輔具維修"
+
+    };
+
+
+    return (
+        names[category]
+        ||
+        category
+    );
+
+}
+
+
+
+/* =========================================
+   SECURITY
+========================================= */
+
+
+function escapeHTML(value) {
+
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+
+    div.textContent =
+        value || "";
+
+
+    return div.innerHTML;
+
+}
+
+
+
+function escapeAttribute(value) {
+
+
+    return String(
+        value || ""
+    )
+
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+
+    .replace(
+        /</g,
+        "&lt;"
+    )
+
+    .replace(
+        />/g,
+        "&gt;"
+    );
+
+}
+
+
+
+/* =========================================
+   START
+========================================= */
+
+
+loadProducts();
+
 
 </script>
 
 
 </body>
+
 </html>
