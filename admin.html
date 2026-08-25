@@ -21,6 +21,10 @@ main{width:92%;max-width:1280px;margin:32px auto 70px}.top{display:flex;justify-
 .previews{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}.preview{width:110px;height:110px;position:relative;border:1px solid #dfe7ea;border-radius:8px;overflow:hidden;background:#f8fafb}.preview img{width:100%;height:100%;object-fit:contain}.preview button{position:absolute;top:4px;right:4px;border:0;border-radius:50%;width:25px;height:25px;background:#0009;color:white}
 .status{font-size:12px;padding:4px 8px;border-radius:999px;background:#eee}.on{background:#e5f6ec;color:#19734a}.hot{color:#d35400;font-weight:700}
 .msg{margin-top:12px;color:#176182}
+.variant-card{margin:14px 0;padding:18px;border:1px solid #dce7eb;border-radius:12px;background:#f8fbfc}
+.variant-top{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end;margin-bottom:12px}
+.variant-specs{margin-top:8px}
+.variant-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
 @media(max-width:760px){.grid{grid-template-columns:1fr}.span2{grid-column:auto}.row2,.row1{grid-template-columns:1fr}header,.top{align-items:flex-start;flex-direction:column}}
 </style>
 </head>
@@ -100,6 +104,17 @@ main{width:92%;max-width:1280px;margin:32px auto 70px}.top{display:flex;justify-
     </div>
 
     <div class="section">
+      <div class="section-head">
+        <div>
+          <h3>型號／尺寸規格</h3>
+          <div style="color:#78909c;font-size:14px">同一商品若有不同型號或尺寸，可在這裡分別建立規格。</div>
+        </div>
+        <button id="addVariant" class="soft">＋ 新增型號</button>
+      </div>
+      <div id="variants"></div>
+    </div>
+
+    <div class="section">
       <h3>商品圖片</h3>
       <div class="field"><input id="files" type="file" accept="image/*" multiple></div>
       <div id="previews" class="previews"></div>
@@ -168,8 +183,58 @@ function addSpec(n="",v=""){
   r.innerHTML='<input class="sn" placeholder="規格名稱，例如：座寬"><input class="sv" placeholder="例如：45 cm"><button class="remove">刪除</button>';
   r.querySelector(".sn").value=n;r.querySelector(".sv").value=v;r.querySelector("button").onclick=()=>r.remove();$("specs").appendChild(r);
 }
+
+function addVariantSpec(container,n="",v=""){
+  const r=document.createElement("div");r.className="row2 variant-spec-row";
+  r.innerHTML='<input class="vsn" placeholder="規格名稱，例如：座寬"><input class="vsv" placeholder="例如：42cm"><button type="button" class="remove">刪除</button>';
+  r.querySelector(".vsn").value=n;
+  r.querySelector(".vsv").value=v;
+  r.querySelector(".remove").onclick=()=>r.remove();
+  container.appendChild(r);
+}
+
+function addVariant(model="",specs=null){
+  const card=document.createElement("div");
+  card.className="variant-card";
+  card.innerHTML=`
+    <div class="variant-top">
+      <div class="field" style="margin:0">
+        <label>型號／尺寸名稱</label>
+        <input class="variant-model" placeholder="例如：AC1616">
+      </div>
+      <button type="button" class="remove remove-variant">刪除此型號</button>
+    </div>
+    <div><strong style="color:#164c65">此型號規格</strong></div>
+    <div class="variant-specs"></div>
+    <div class="variant-actions">
+      <button type="button" class="soft add-variant-spec">＋ 新增規格</button>
+    </div>`;
+  card.querySelector(".variant-model").value=model;
+  const box=card.querySelector(".variant-specs");
+  card.querySelector(".add-variant-spec").onclick=()=>addVariantSpec(box);
+  card.querySelector(".remove-variant").onclick=()=>card.remove();
+  $("variants").appendChild(card);
+
+  if(Array.isArray(specs) && specs.length){
+    specs.forEach(s=>addVariantSpec(box,s.name||"",s.value||""));
+  }else{
+    ["座寬","座深","座高","總寬","總高","總長","承重","淨重"].forEach(n=>addVariantSpec(box,n,""));
+  }
+}
+
+function getVariants(){
+  return [...document.querySelectorAll(".variant-card")].map(card=>{
+    const model=card.querySelector(".variant-model").value.trim();
+    const specs=[...card.querySelectorAll(".variant-spec-row")].map(r=>({
+      name:r.querySelector(".vsn").value.trim(),
+      value:r.querySelector(".vsv").value.trim()
+    })).filter(s=>s.name&&s.value);
+    return {model,specs};
+  }).filter(v=>v.model || v.specs.length);
+}
 $("addFeature").onclick=()=>addFeature();
 $("addSpec").onclick=()=>addSpec();
+$("addVariant").onclick=()=>addVariant();
 
 function defaults(){
   ["座寬","座深","座高","總寬","總高","總長","承重","淨重","前輪尺寸","後輪尺寸","材質"].forEach(n=>addSpec(n,""));
@@ -197,7 +262,7 @@ async function upload(){
 function reset(useDefaults=true){
   ["id","name","short","desc","subsidy"].forEach(x=>$(x).value="");
   $("category").value="aluminum-wheelchair";$("sort").value=0;$("featured").checked=false;$("active").checked=true;
-  $("features").innerHTML="";$("specs").innerHTML="";images=[];renderImages();$("saveMsg").textContent="";
+  $("features").innerHTML="";$("specs").innerHTML="";$("variants").innerHTML="";images=[];renderImages();$("saveMsg").textContent="";
   addFeature();if(useDefaults)defaults();
 }
 $("newBtn").onclick=()=>{reset();$("editorTitle").textContent="新增商品";$("editor").classList.remove("hidden");$("editor").scrollIntoView({behavior:"smooth"})};
@@ -209,8 +274,9 @@ $("saveBtn").onclick=async()=>{
     await upload();
     const name=$("name").value.trim();if(!name) throw new Error("請輸入商品名稱");
     const features=[...document.querySelectorAll(".fv")].map(x=>x.value.trim()).filter(Boolean);
-    const specs=[...document.querySelectorAll(".row2")].map(r=>({name:r.querySelector(".sn").value.trim(),value:r.querySelector(".sv").value.trim()})).filter(x=>x.name&&x.value);
-    const item={name,category:$("category").value,short_description:$("short").value.trim(),description:$("desc").value.trim(),subsidy:$("subsidy").value.trim(),sort_order:Number($("sort").value)||0,featured:$("featured").checked,is_active:$("active").checked,features,specs,image_urls:images};
+    const specs=[...$("specs").querySelectorAll(".row2")].map(r=>({name:r.querySelector(".sn").value.trim(),value:r.querySelector(".sv").value.trim()})).filter(x=>x.name&&x.value);
+    const variants=getVariants();
+    const item={name,category:$("category").value,short_description:$("short").value.trim(),description:$("desc").value.trim(),subsidy:$("subsidy").value.trim(),sort_order:Number($("sort").value)||0,featured:$("featured").checked,is_active:$("active").checked,features,specs,variants,image_urls:images};
     let q;
     if($("id").value) q=await db.from("products").update(item).eq("id",$("id").value);
     else{item.slug=(name.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"product")+"-"+Date.now();q=await db.from("products").insert(item)}
@@ -224,7 +290,7 @@ async function edit(id){
   const {data,error}=await db.from("products").select("*").eq("id",id).single();
   if(error)return alert("讀取商品失敗："+error.message);
   reset(false);$("id").value=data.id;$("name").value=data.name||"";$("category").value=data.category||"aluminum-wheelchair";$("short").value=data.short_description||"";$("desc").value=data.description||"";$("subsidy").value=data.subsidy||"";$("sort").value=data.sort_order||0;$("featured").checked=!!data.featured;$("active").checked=!!data.is_active;images=data.image_urls||[];renderImages();
-  (data.features||[]).forEach(addFeature);(data.specs||[]).forEach(s=>addSpec(s.name,s.value));
+  (data.features||[]).forEach(addFeature);(data.specs||[]).forEach(s=>addSpec(s.name,s.value));(data.variants||[]).forEach(v=>addVariant(v.model||"",v.specs||[]));
   $("editorTitle").textContent="編輯商品";$("editor").classList.remove("hidden");$("editor").scrollIntoView({behavior:"smooth"});
 }
 async function del(id){
