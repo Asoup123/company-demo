@@ -25,6 +25,8 @@ main{width:92%;max-width:1280px;margin:32px auto 70px}.top{display:flex;justify-
 .variant-top{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end;margin-bottom:12px}
 .variant-specs{margin-top:8px}
 .variant-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.copy-variant{border:0;background:#eef7fb;color:#176182;border-radius:7px;padding:8px 12px;font-weight:700}
+.copy-variant:hover{background:#dff1f8}
 @media(max-width:760px){.grid{grid-template-columns:1fr}.span2{grid-column:auto}.row2,.row1{grid-template-columns:1fr}header,.top{align-items:flex-start;flex-direction:column}}
 </style>
 </head>
@@ -109,7 +111,10 @@ main{width:92%;max-width:1280px;margin:32px auto 70px}.top{display:flex;justify-
           <h3>型號／尺寸規格</h3>
           <div style="color:#78909c;font-size:14px">同一商品若有不同型號或尺寸，可在這裡分別建立規格。</div>
         </div>
-        <button id="addVariant" class="soft">＋ 新增型號</button>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button id="addVariant" class="soft">＋ 新增空白型號</button>
+          <button id="addVariantLikeFirst" class="soft">＋ 比照第一個新增</button>
+        </div>
       </div>
       <div id="variants"></div>
     </div>
@@ -208,11 +213,20 @@ function addVariant(model="",specs=null){
     <div class="variant-specs"></div>
     <div class="variant-actions">
       <button type="button" class="soft add-variant-spec">＋ 新增規格</button>
+      <button type="button" class="copy-variant duplicate-variant">複製此型號</button>
     </div>`;
   card.querySelector(".variant-model").value=model;
   const box=card.querySelector(".variant-specs");
   card.querySelector(".add-variant-spec").onclick=()=>addVariantSpec(box);
   card.querySelector(".remove-variant").onclick=()=>card.remove();
+  card.querySelector(".duplicate-variant").onclick=()=>{
+    const currentModel=card.querySelector(".variant-model").value.trim();
+    const currentSpecs=[...card.querySelectorAll(".variant-spec-row")].map(r=>({
+      name:r.querySelector(".vsn").value.trim(),
+      value:r.querySelector(".vsv").value.trim()
+    }));
+    addVariant(currentModel ? currentModel + "-copy" : "", currentSpecs);
+  };
   $("variants").appendChild(card);
 
   if(Array.isArray(specs) && specs.length){
@@ -232,9 +246,25 @@ function getVariants(){
     return {model,specs};
   }).filter(v=>v.model || v.specs.length);
 }
+
+function addVariantLikeFirst(){
+  const first=$("variants").querySelector(".variant-card");
+  if(!first){
+    addVariant();
+    return;
+  }
+
+  const specs=[...first.querySelectorAll(".variant-spec-row")].map(r=>({
+    name:r.querySelector(".vsn").value.trim(),
+    value:r.querySelector(".vsv").value.trim()
+  }));
+
+  addVariant("",specs);
+}
 $("addFeature").onclick=()=>addFeature();
 $("addSpec").onclick=()=>addSpec();
 $("addVariant").onclick=()=>addVariant();
+$("addVariantLikeFirst").onclick=()=>addVariantLikeFirst();
 
 function defaults(){
   ["座寬","座深","座高","總寬","總高","總長","承重","淨重","前輪尺寸","後輪尺寸","材質"].forEach(n=>addSpec(n,""));
