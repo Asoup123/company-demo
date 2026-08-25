@@ -67,11 +67,15 @@ main{width:92%;max-width:1280px;margin:32px auto 70px}.top{display:flex;justify-
       <div class="field"><label>商品名稱</label><input id="name" placeholder="例如：FZK-AB 躺舒芙"></div>
       <div class="field"><label>商品分類</label>
         <select id="category">
-          <option value="wheelchair">輪椅系列</option>
-          <option value="mobility">行動輔具</option>
-          <option value="assistive">照護輔具</option>
-          <option value="medical">醫療用品</option>
-          <option value="repair">輔具維修</option>
+          <option value="aluminum-wheelchair">鋁製輪椅</option>
+          <option value="steel-wheelchair">鐵製輪椅</option>
+          <option value="rollator">助步車</option>
+          <option value="commode-chair">便椅</option>
+          <option value="shower-chair">洗澡椅</option>
+          <option value="walker">助行器</option>
+          <option value="cane-crutch">手／拐杖</option>
+          <option value="quad-cane">四腳拐</option>
+          <option value="accessories">輔助用品</option>
         </select>
       </div>
       <div class="field span2"><label>商品簡介</label><textarea id="short"></textarea></div>
@@ -137,7 +141,7 @@ $("loginBtn").onclick=async()=>{
 $("password").addEventListener("keydown",e=>{if(e.key==="Enter")$("loginBtn").click()});
 $("logoutBtn").onclick=async()=>{await db.auth.signOut();showLogin()};
 
-const cname=c=>({wheelchair:"輪椅系列",mobility:"行動輔具",assistive:"照護輔具",medical:"醫療用品",repair:"輔具維修"}[c]||c);
+const cname=c=>({"aluminum-wheelchair":"鋁製輪椅","steel-wheelchair":"鐵製輪椅","rollator":"助步車","commode-chair":"便椅","shower-chair":"洗澡椅","walker":"助行器","cane-crutch":"手／拐杖","quad-cane":"四腳拐","accessories":"輔助用品"}[c]||c);
 const esc=s=>String(s||"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
 
 async function load(){
@@ -192,7 +196,7 @@ async function upload(){
 
 function reset(useDefaults=true){
   ["id","name","short","desc","subsidy"].forEach(x=>$(x).value="");
-  $("category").value="wheelchair";$("sort").value=0;$("featured").checked=false;$("active").checked=true;
+  $("category").value="aluminum-wheelchair";$("sort").value=0;$("featured").checked=false;$("active").checked=true;
   $("features").innerHTML="";$("specs").innerHTML="";images=[];renderImages();$("saveMsg").textContent="";
   addFeature();if(useDefaults)defaults();
 }
@@ -219,7 +223,7 @@ $("saveBtn").onclick=async()=>{
 async function edit(id){
   const {data,error}=await db.from("products").select("*").eq("id",id).single();
   if(error)return alert("讀取商品失敗："+error.message);
-  reset(false);$("id").value=data.id;$("name").value=data.name||"";$("category").value=data.category||"wheelchair";$("short").value=data.short_description||"";$("desc").value=data.description||"";$("subsidy").value=data.subsidy||"";$("sort").value=data.sort_order||0;$("featured").checked=!!data.featured;$("active").checked=!!data.is_active;images=data.image_urls||[];renderImages();
+  reset(false);$("id").value=data.id;$("name").value=data.name||"";$("category").value=data.category||"aluminum-wheelchair";$("short").value=data.short_description||"";$("desc").value=data.description||"";$("subsidy").value=data.subsidy||"";$("sort").value=data.sort_order||0;$("featured").checked=!!data.featured;$("active").checked=!!data.is_active;images=data.image_urls||[];renderImages();
   (data.features||[]).forEach(addFeature);(data.specs||[]).forEach(s=>addSpec(s.name,s.value));
   $("editorTitle").textContent="編輯商品";$("editor").classList.remove("hidden");$("editor").scrollIntoView({behavior:"smooth"});
 }
