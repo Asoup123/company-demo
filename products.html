@@ -828,6 +828,61 @@
             }
         }
 
+    
+        /* =========================
+           多型號規格比較表
+        ========================= */
+
+        .variant-table-wrap {
+            width: 100%;
+            overflow-x: auto;
+            border: 1px solid #e3eaed;
+            border-radius: 12px;
+            background: white;
+        }
+
+        .variant-table {
+            width: 100%;
+            min-width: 760px;
+            border-collapse: collapse;
+        }
+
+        .variant-table th,
+        .variant-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #e8edef;
+            border-right: 1px solid #edf1f3;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .variant-table th:last-child,
+        .variant-table td:last-child {
+            border-right: 0;
+        }
+
+        .variant-table thead th {
+            background: #eef7fb;
+            color: #164c65;
+            font-weight: 800;
+        }
+
+        .variant-table tbody tr:nth-child(even) {
+            background: #fafcfd;
+        }
+
+        .variant-model {
+            color: #164c65;
+            font-weight: 800;
+            text-align: left !important;
+        }
+
+        .variant-note {
+            margin-top: 10px;
+            color: #7a8a91;
+            font-size: 13px;
+        }
+
     </style>
 
 </head>
@@ -1385,6 +1440,151 @@ function renderProducts(products) {
 }
 
 
+
+function buildVariantTable(variants) {
+
+    if (
+        !Array.isArray(variants)
+        ||
+        !variants.length
+    ) {
+        return "";
+    }
+
+    const specNames = [];
+
+    variants.forEach(
+        variant => {
+
+            const specs =
+                Array.isArray(variant.specs)
+                ?
+                variant.specs
+                :
+                [];
+
+            specs.forEach(
+                spec => {
+
+                    if (
+                        spec.name
+                        &&
+                        !specNames.includes(spec.name)
+                    ) {
+                        specNames.push(spec.name);
+                    }
+                }
+            );
+        }
+    );
+
+    if (!specNames.length) {
+        return "";
+    }
+
+    const header = `
+
+        <tr>
+
+            <th>
+                型號
+            </th>
+
+            ${
+                specNames
+                .map(
+                    name => `
+                    <th>
+                        ${escapeHTML(name)}
+                    </th>
+                    `
+                )
+                .join("")
+            }
+
+        </tr>
+
+    `;
+
+    const rows =
+        variants
+        .map(
+            variant => {
+
+                const map = {};
+
+                (variant.specs || [])
+                .forEach(
+                    spec => {
+
+                        if (spec.name) {
+                            map[spec.name] =
+                                spec.value || "";
+                        }
+                    }
+                );
+
+                return `
+
+                    <tr>
+
+                        <td class="variant-model">
+                            ${escapeHTML(
+                                variant.model || "未命名型號"
+                            )}
+                        </td>
+
+                        ${
+                            specNames
+                            .map(
+                                name => `
+                                <td>
+                                    ${
+                                        map[name]
+                                        ?
+                                        escapeHTML(map[name])
+                                        :
+                                        "—"
+                                    }
+                                </td>
+                                `
+                            )
+                            .join("")
+                        }
+
+                    </tr>
+
+                `;
+            }
+        )
+        .join("");
+
+    return `
+
+        <div class="variant-table-wrap">
+
+            <table class="variant-table">
+
+                <thead>
+                    ${header}
+                </thead>
+
+                <tbody>
+                    ${rows}
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="variant-note">
+            不同型號／尺寸可能有不同規格，實際供應狀況歡迎洽詢。
+        </div>
+
+    `;
+}
+
+
 function openProduct(id) {
 
     const product =
@@ -1415,6 +1615,13 @@ function openProduct(id) {
         Array.isArray(product.specs)
         ?
         product.specs
+        :
+        [];
+
+    const variants =
+        Array.isArray(product.variants)
+        ?
+        product.variants
         :
         [];
 
@@ -1569,13 +1776,32 @@ function openProduct(id) {
 
 
         ${
+            variants.length
+            ?
+            `
+            <section class="detail-section">
+
+                <h3>
+                    型號／尺寸規格
+                </h3>
+
+                ${buildVariantTable(variants)}
+
+            </section>
+            `
+            :
+            ""
+        }
+
+
+        ${
             specs.length
             ?
             `
             <section class="detail-section">
 
                 <h3>
-                    產品規格
+                    ${variants.length ? "共通規格" : "產品規格"}
                 </h3>
 
                 <table class="spec-table">
