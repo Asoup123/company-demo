@@ -121,7 +121,7 @@
         nav {
             display: flex;
             align-items: center;
-            gap: 26px;
+            gap: 42px;
         }
 
         nav a {
@@ -1024,19 +1024,13 @@
             z-index: 1;
             top: 50%;
             left: 0;
-
-            /* 固定尺寸：不再隨文字長短改變 */
             width: 92px;
             height: 54px;
-
             border-radius: 10px;
             background: #0797d3;
-
-            /* X 軸只用 transform 移動，避免 left/width 重排造成抖動 */
             transform: translate3d(0, -50%, 0);
             transition: transform 0.32s ease;
             will-change: transform;
-
             pointer-events: none;
         }
 
@@ -1749,14 +1743,9 @@ document.addEventListener("DOMContentLoaded", function () {
         link.classList.add("nav-current");
 
         if (indicator && window.innerWidth > 750) {
-            /*
-             * 藍色背景固定寬度 92px。
-             * 只計算目標標籤中心點，讓藍底直接平順滑到該位置。
-             */
-            const indicatorWidth = indicator.offsetWidth;
             const targetX =
                 link.offsetLeft +
-                (link.offsetWidth - indicatorWidth) / 2;
+                (link.offsetWidth - indicator.offsetWidth) / 2;
 
             indicator.style.transform =
                 `translate3d(${targetX}px, -50%, 0)`;
