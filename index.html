@@ -1028,9 +1028,12 @@
             height: 54px;
             border-radius: 10px;
             background: #0797d3;
+
+            /* 只移動 transform，避免 width / left 造成卡頓 */
             transform: translate3d(0, -50%, 0);
-            transition: transform 0.32s ease;
+            transition: transform 0.34s cubic-bezier(0.22, 1, 0.36, 1);
             will-change: transform;
+            backface-visibility: hidden;
             pointer-events: none;
         }
 
@@ -1732,6 +1735,11 @@ document.addEventListener("DOMContentLoaded", function () {
         "contact"
     ];
 
+    let clickedTargetId = null;
+    let clickLock = false;
+    let scrollEndTimer = null;
+    let rafPending = false;
+
     function moveIndicator(link) {
 
         if (!link) return;
@@ -1743,6 +1751,7 @@ document.addEventListener("DOMContentLoaded", function () {
         link.classList.add("nav-current");
 
         if (indicator && window.innerWidth > 750) {
+
             const targetX =
                 link.offsetLeft +
                 (link.offsetWidth - indicator.offsetWidth) / 2;
@@ -1752,7 +1761,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    function updateActiveNav() {
+    function getCurrentSectionId() {
 
         const scrollPosition =
             window.scrollY + 180;
@@ -1770,7 +1779,6 @@ document.addEventListener("DOMContentLoaded", function () {
             ) {
                 currentId = id;
             }
-
         });
 
         if (
@@ -1779,6 +1787,20 @@ document.addEventListener("DOMContentLoaded", function () {
         ) {
             currentId = "contact";
         }
+
+        return currentId;
+    }
+
+    function updateActiveNav() {
+
+        /*
+         * 使用者剛點擊導覽項目時，鎖住藍框。
+         * 頁面即使滑過其他 section，也不讓藍框中途停靠。
+         */
+        if (clickLock) return;
+
+        const currentId =
+            getCurrentSectionId();
 
         const currentLink =
             links.find(function (link) {
@@ -1794,24 +1816,90 @@ document.addEventListener("DOMContentLoaded", function () {
         link.addEventListener(
             "click",
             function () {
+
+                clickedTargetId =
+                    link.getAttribute("href").slice(1);
+
+                clickLock = true;
+
+                /*
+                 * 點哪一個，藍框立即只往那個選項移動。
+                 * 中途不會因 scroll 經過其他 section 而改變目標。
+                 */
                 moveIndicator(link);
+
+                clearTimeout(scrollEndTimer);
+
+                scrollEndTimer = setTimeout(function () {
+                    clickLock = false;
+                    clickedTargetId = null;
+                    updateActiveNav();
+                }, 900);
             }
         );
-
     });
 
     window.addEventListener(
         "scroll",
-        updateActiveNav,
+        function () {
+
+            /*
+             * 點擊造成的 smooth scroll 期間完全忽略 scroll 更新。
+             */
+            if (clickLock) {
+
+                clearTimeout(scrollEndTimer);
+
+                scrollEndTimer = setTimeout(function () {
+                    clickLock = false;
+                    clickedTargetId = null;
+                    updateActiveNav();
+                }, 140);
+
+                return;
+            }
+
+            /*
+             * 一般手動捲動時，一個畫面 frame 最多更新一次。
+             */
+            if (rafPending) return;
+
+            rafPending = true;
+
+            requestAnimationFrame(function () {
+                updateActiveNav();
+                rafPending = false;
+            });
+        },
         { passive: true }
     );
 
     window.addEventListener(
         "resize",
-        updateActiveNav
+        function () {
+            updateActiveNav();
+        }
     );
 
-    updateActiveNav();
+    /*
+     * 首次載入不播放從左側飛進來的動畫，
+     * 直接把藍框放到正確位置。
+     */
+    if (indicator) {
+        const oldTransition =
+            indicator.style.transition;
+
+        indicator.style.transition = "none";
+        updateActiveNav();
+
+        requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+                indicator.style.transition = "";
+            });
+        });
+    } else {
+        updateActiveNav();
+    }
 
 });
 </script>
